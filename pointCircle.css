@@ -1,0 +1,59 @@
+html {
+  scroll-behavior: smooth;
+}
+section {
+  overflow: hidden;
+}
+.first {
+  height: 100vh;
+  background-color: #999;
+}
+.circle_section {
+  position: relative;
+  min-height: 200vh;
+}
+.circle_wrap {
+  position: absolute;
+  left: 50%;
+  top: 50vh;
+  width: 100%;
+  transform: translateX(-50%);
+}
+.circle {
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 0;
+  max-width: 175vw;
+  max-height: 175vw;
+  background-color: #000;
+  opacity: 0;
+  transform: translate3d(-50%, 0, 0);
+  transform-origin: 50% 0;
+  border-radius: 50%;
+  transition: 0.3s linear;
+}
+.text_area {
+  padding-top: 100vh;
+  font-size: 120px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  mix-blend-mode: difference;
+  position: relative;
+  z-index: 100;
+}
+.circle p {
+  position: absolute;
+  left: 50%;
+  top: 40vh;
+  min-width: 100vw;
+  font-size: 100px;
+  font-weight: 700;
+  color: #fff;
+  transform: translateX(-50%);
+  text-align: center;
+  /* mix-blend-mode: difference; */
+}
