@@ -1109,7 +1109,9 @@
     // hubl form onSubmitted - start
     if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted') {
       document.querySelector('.form').style.height = '884px';
-      document.querySelector('.form .form_modal.active').style.height = '775px';
+      if(document.querySelector('.form .form_modal.active')) {
+        document.querySelector('.form .form_modal.active').style.height = '775px';
+      }
       document.querySelector('.form_inner').style.display = "none";
       document.querySelector('.submit').style.display = "block";
     }
