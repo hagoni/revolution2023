@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="mainVisual.css">
+  <script>
+    window.addEventListener('load', () => {
+      const body = document.querySelector('body');
+      body.classList.remove('preload');
+    })
+  </script>
+</head>
+<body class="preload">
+  <div id="wrap">
+    <section class="main_visual">
+      <div class="bg"></div>
+      <span class="circle"></span>
+      <div class="square_wrap">
+        <span class="square square_1"></span>
+        <span class="square square_2"></span>
+        <span class="square square_3"></span>
+        <span class="square square_4"></span>
+        <h1 class="hr_title">HREVOLUTION 2023</h1>
+      </div>
+    </section>
+    <section class="others"></section>
+  </div>
+
+  <script src="mainVisual.js"></script>
+</body>
+</html>

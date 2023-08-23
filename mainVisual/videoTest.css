@@ -1,0 +1,12 @@
+body {
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 100vh;
+  /* width: 100%; */
+}

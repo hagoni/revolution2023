@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap');
+
+.preload {
+  transition: none !important;
+}
+
+section {
+  overflow: hidden;
+}
+
+.main_visual {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background-color: #020202;
+}
+.main_visual .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #020202;
+}
+.main_visual .circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -450px;
+  margin-top: -450px;
+  width: 900px;
+  height: 900px;
+  background: rgba(254, 7, 7, 0.11);
+  border-radius: 450px;
+  mix-blend-mode: hard-light;
+  filter: blur(95px);
+}
+.main_visual .square_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -282px;
+  margin-top: -309px;
+  width: 564px;
+  height: 564px;
+}
+.main_visual .square {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -282px;
+  margin-top: -309px;
+  width: 564px;
+  height: 564px;
+  border-radius: 10px;
+  transform: rotate(45deg);
+  transition: 0.3s linear;
+}
+.main_visual .square_1 {
+  border: 2px solid #FFF;
+  filter: blur(0.3333333432674408px);
+  z-index: 4;
+}
+.main_visual .square_2 {
+  border: 6.5px solid #FE0707;
+  mix-blend-mode: hard-light;
+  filter: blur(15px);
+  z-index: 1;
+}
+.main_visual .square_3 {
+  border: 6px solid #FE0707;
+  mix-blend-mode: hard-light;
+  filter: blur(5px);
+  z-index: 2;
+}
+.main_visual .square_4 {
+  border: 4px solid #FE0707;
+  filter: blur(0.5px);
+  z-index: 3;
+}
+.main_visual .hr_title {
+  position: relative;
+  margin-top: -54px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  color: #e6e6e6;
+  white-space: nowrap;
+  transform: scale(1);
+  transition: 0.3s ease;
+  z-index: 5;
+}
+
+
+.others {
+  height: 500vh;
+}

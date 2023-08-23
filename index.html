@@ -5,25 +5,885 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="pointCircle.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Oswald&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body class="preload">
   <div id="wrap">
-    <section class="first"></section>
-    <section class="circle_section">
-      <div class="circle_wrap">
-        <div class="circle">
-          <p>Hidden Text</p>
-        </div>
+    <a href="#top" class="top_btn" data-anchor="scroll"></a>
+    <header>
+      <a href="#top" class="home" data-anchor="scroll">HRevolution 2023</a>
+      <div class="gnb">
+        <a href="#session" class="header_li" data-anchor="scroll">Session</a>
+        <a href="#event"class="header_li" data-anchor="scroll">Event</a>
       </div>
-      <div class="text_area">
-        <p>2023 HR Revolution</p>
+      <a href="#" class="header_btn form_btn"><span class="hover"></span><span class="text">참가신청<i><img src="https://hlab.im/hubfs/2023%20HREVOLUTION/header_icon.svg" alt="icon"></i></span></a>
+    </header>
+    <section class="main_visual full_height scroll-section anchor-top" id="scroll-section-0">
+      <div class="scroll_btn">
+        <i><img src="https://hlab.im/hubfs/2023%20HREVOLUTION/mv_scroll_icon.svg" alt="icon"></i>
+        Scroll
+      </div>
+      <div class="video_area">
+        <div class="video_overlay"></div>
+        <video id="mv_video_loop" src="https://hlab.im/hubfs/2023%20HREVOLUTION/TEST/44444444444444444.mp4" playsinline muted loop></video>
+        <video id="mv_video_intro" src="https://hlab.im/hubfs/2023%20HREVOLUTION/TEST/3C.mp4" playsinline muted></video>
+      </div>
+      <div class="mv_text_area">
+        <h2 class="mv_title">
+          <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/mv_title.svg" alt="RE:MOVE">
+        </h2>
+        <p class="mv_location">
+          양재 THE K 호텔, 그랜드 볼룸
+        </p>
+        <p class="mv_date">
+          2023. 09. 20. 수. 13:00
+        </p>
+        <a href="#" class="mv_btn">
+          <span class="hover"></span>
+          <span class="text">
+            HRevolution <span class="sub">참가신청</span>
+          </span>
+        </a>
       </div>
     </section>
-    <section class="third"></section>
+    <section class="story full_height scroll-section" id="scroll-section-1">
+      <div class="inner">
+        <div class="bar bar_left"></div>
+        <div class="bar bar_right"></div>
+        <div class="overlay"></div>
+        <div class="video_fixed">
+          <div class="videos_wrap">
+            <!-- <video id="story_vid_0" src="https://hlab.im/hubfs/2023%20HREVOLUTION/story_bg1.mp4" playsinline muted loop></video> -->
+            <video id="story_vid_1" src="https://hlab.im/hubfs/2023%20HREVOLUTION/story_bg2.mp4" playsinline muted loop></video>
+          </div>
+        </div>
+        <div class="title_area">
+          <p class="title">
+            <span>RE</span><span class="colon">:</span><span>MOVE</span>
+          </p>
+        </div>
+        <div class="text_area">
+          <p class="text a">벗어나다</p>
+          <p class="text b">HR이 관성에서 벗어나다.</p>
+          <p class="text c">다시 움직이다.</p>
+          <p class="text d">HR을 중심으로 다시 움직이다.</p>
+          <p class="text e">2023년 9월 20일,<br>HR이 틀을 깨고 나아갑니다.</p>
+        </div>
+      </div>
+    </section>
+    <section class="slide scroll-section" id="scroll-section-2">
+      <div class="inner">
+        <div class="slide_inner">
+          <div class="slide_list_wrap">
+            <ul class="slide_list">
+              <li class="slide_item a">
+                <div class="img_area">
+                  <p class="slide_title">국내 최대<br>HR-TECH<br>컨퍼런스</p>
+                </div>
+                <div class="text_area">
+                  <p class="line1">HRevolution은 5년째 <strong>1,000여명의</strong></p>
+                  <p class="line2"><strong>HR 담당자들</strong>이 함께하는 최대 규모 HR 컨퍼런스입니다.</p>
+                  <p class="line3">더 나은 HR을 위해 발전시켜온 <strong>HR-TECH</strong>를 만나보세요.</p>
+                </div>
+              </li>
+              <li class="slide_item b">
+                <div class="img_area">
+                  <p class="slide_title">국내 최고<br>리더들이 전하는<br>HR 노하우</p>
+                </div>
+                <div class="text_area">
+                  <p class="line1">분야를 뛰어넘는 리더들의 지혜를 만나보세요.</p>
+                  <p class="line2"><strong>전 삼성전자 고동진 사장님</strong>의 성장 노하우와 <strong>존슨앤존슨</strong></p>
+                  <p class="line3"><strong>컨슈머 채병권 이사님</strong>의 HR 혁신 사례가 준비되어 있습니다.</p>
+                </div>
+              </li>
+              <li class="slide_item c">
+                <div class="img_area">
+                  <p class="slide_title">국내 최초<br>HR 트렌드를<br>써내려가는 현장</p>
+                </div>
+                <div class="text_area">
+                  <p class="line1"><strong>‘AI 면접’</strong> 이라는 세상에 없던 개념을 만들고,</p>
+                  <p class="line2"><strong>‘역량 기반 채용’</strong>이라는 트렌드를 만들었던,</p>
+                  <p class="line3">HRevolution이 다시 한번 여러분 곁을 찾아갑니다.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="slide_btn form_btn">
+            <span class="hover"></span>
+            <span class="text">
+              HRevolution <span class="sub">참가신청</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="attend" id="scroll-section-3">
+      <p class="title inner">Why Attend?</p>
+      <div class="inner button_inner">
+        <button type="button" class="swiper-button swiper-button-prev" aria-label="슬라이드 뒤로">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <g opacity="1">
+              <path d="M19.5483 11.4661L14.7882 15.9728L19.5483 20.4862L17.9883 22.1328L12.9749 17.3795C12.6065 17.0053 12.3999 16.5013 12.3999 15.9762C12.3999 15.451 12.6065 14.947 12.9749 14.5728L17.9883 9.8195L19.5483 11.4661Z" fill="white"/>
+            </g>
+          </svg> 
+        </button>
+        <button type="button" class="swiper-button swiper-button-next" aria-label="슬라이드 앞으로">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <g opacity="1">
+              <path d="M12.4517 20.5339L17.2118 16.0272L12.4517 11.5138L14.0117 9.86719L19.0251 14.6205C19.3935 14.9947 19.6001 15.4987 19.6001 16.0238C19.6001 16.549 19.3935 17.053 19.0251 17.4272L14.0117 22.1805L12.4517 20.5339Z" fill="white"/>
+            </g>
+          </svg>
+        </button>
+      </div>
+      <div class="swiper">
+        <div class="overlay overlay_left"></div>
+        <div class="overlay overlay_right"></div>
+        <div class="inner">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide1">
+                <div class="img_area"></div>
+                <div class="text_area">
+                  <p class="slide_title">
+                    다가올 HR의<br>
+                    트렌드가 궁금해요.
+                  </p>
+                  <p class="slide_text">
+                    <strong>HR 주니어분</strong>들의 시야를 넓혀 줄 <strong>HR-TECH 중심의 메가 트렌드 세션</strong>이 준비되어 있어요.
+                  </p>
+                  <p class="hashtag"><span>#HR주니어</span><span>#트렌드</span></p>
+                </div>
+              </div>
+              <div class="swiper-slide slide2">
+                <div class="img_area"></div>
+                <div class="text_area">
+                  <p class="slide_title">
+                    다른 회사에선 HR을<br>
+                    어떻게 하나요?
+                  </p>
+                  <p class="slide_text">
+                    <strong>존슨앤존슨 컨슈머헬스의 사례</strong>를 통해 <br>
+                    데이터 기반 HR 애널리틱스는 무엇인지, 어떻게 업무에 적용하면 좋을지 알려드릴게요. 
+                  </p>
+                  <p class="hashtag"><span>#HR실무진</span><span>#기업사례</span></p>
+                </div>
+              </div>
+              <div class="swiper-slide slide3">
+                <div class="img_area"></div>
+                <div class="text_area">
+                  <p class="slide_title">
+                    실무에 바로 적용할<br>
+                    아이디어 있을까요?
+                  </p>
+                  <p class="slide_text">
+                    2,100여개의 고객사를 만나며 쌓아온 HR 노하우를 <strong>팀장님들</strong>께 전합니다. <strong>현업에 바로 적용할 아이디어</strong>를 얻어가세요.
+                  </p>
+                  <p class="hashtag"><span>#HR팀장</span><span>#HR-TECH</span><span>#성과관리</span></p>
+                </div>
+              </div>
+              <div class="swiper-slide slide4">
+                <div class="img_area"></div>
+                <div class="text_area">
+                  <p class="slide_title">
+                    사람 뽑는게<br>
+                    제일 어려워요.
+                  </p>
+                  <p class="slide_text">
+                    <strong>폭발적으로 성장하고 있는 기업</strong>에게<br>
+                    가장 중요한 건 <strong>인재 채용</strong>입니다.<br>
+                    <strong>HR-TECH</strong>에서 그 해답을 찾아보세요.
+                  </p>
+                  <p class="hashtag"><span>#스타트업대표</span><span>#HR-TECH</span><span>#채용</span></p>
+                </div>
+              </div>
+              <div class="swiper-slide slide5">
+                <div class="img_area"></div>
+                <div class="text_area">
+                  <p class="slide_title">
+                    기업의 성장을 위한<br>
+                    혁신이 필요해요.
+                  </p>
+                  <p class="slide_text">
+                    <strong>임원, 경영진분</strong>들을 위해 최고의 비즈니스 리더,<br>
+                    <strong>전 삼성전자 사장 고동진</strong>님을 어렵게 모셨습니다.<br>
+                    HR의 변화가 불러올 기업의 혁신을 살펴보세요.
+                  </p>
+                  <p class="hashtag"><span>#임원</span><span>#경영진</span><span>#북토크</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="scroll-section-4" class="session anchor-session">
+      <div class="fixed_inner">
+        <div class="title_area">
+          <p class="title">Session</p>
+          <p class="text">
+            09. 20. 수. 13:00 - 17:30
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="1" height="14" viewBox="0 0 1 14" fill="none">
+                <path d="M0.5 0V14" stroke="#6D6F74"/>
+              </svg>
+            </span>
+            양재 더 K 호텔 그랜드볼룸
+          </p>
+        </div>
+        <div class="inner">
+          <div class="table_list">
+            <div class="custom_cursor"></div>
+            <div class="table_item session_item">
+              <span class="num">01</span>
+              <p class="table_title">RE : MOVE 틀을 깨고 나아가다</p>
+              <p class="table_time">
+                13:00 - 13:55
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                    <rect width="1" height="12" fill="#626262"/>
+                  </svg>
+                </span>
+                <span class="min">55min</span>
+              </p>
+            </div>
+            <div class="table_item break">
+              <span class="num">-</span>
+              <p class="table_title">Break Time</p>
+              <p class="table_time">
+                13:55 - 14:35
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                    <rect width="1" height="12" fill="#626262"/>
+                  </svg>
+                </span>
+                <span class="min">40min</span>
+              </p>
+            </div>
+            <div class="table_item session_item">
+              <span class="num">02</span>
+              <p class="table_title">The Unchangeable</p>
+              <p class="table_time">
+                14:35 - 15:05
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                    <rect width="1" height="12" fill="#626262"/>
+                  </svg>
+                </span>
+                <span class="min">30min</span>
+              </p>
+            </div>
+            <div class="table_item session_item">
+              <span class="num">03</span>
+              <p class="table_title">Beyond OKR</p>
+              <p class="table_time">
+                15:05 - 15:40
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                    <rect width="1" height="12" fill="#626262"/>
+                  </svg>
+                </span>
+                <span class="min">35min</span>
+              </p>
+            </div>
+            <div class="table_item break">
+              <span class="num">-</span>
+              <p class="table_title">Break Time</p>
+              <p class="table_time">
+                15:40 - 16:00
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                    <rect width="1" height="12" fill="#626262"/>
+                  </svg>
+                </span>
+                <span class="min">20min</span>
+              </p>
+            </div>
+            <div class="table_item session_item">
+              <span class="num">04</span>
+              <p class="table_title">Johnson & Johnson의 HR 혁명</p>
+              <p class="table_time">
+                16:00 - 16:40
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                    <rect width="1" height="12" fill="#626262"/>
+                  </svg>
+                </span>
+                <span class="min">40min</span>
+              </p>
+            </div>
+            <div class="table_item session_item last on">
+              <span class="num">05</span>
+              <p class="table_title">일이란 무엇인가?</p>
+              <p class="table_time">
+                16:40 - 17:30
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                    <rect width="1" height="12" fill="#626262"/>
+                  </svg>
+                </span>
+                <span class="min">50min</span>
+              </p>
+            </div>
+          </div>
+          <div class="img_area">
+            <ul class="img_list">
+              <li class="img_item img_item1">
+                <p class="box_img_title">Keynote #1</p>
+                <p class="img_title">RE:MOVE 틀을 깨고 나아가다.</p>
+                <p class="img_text">
+                  멈춘것 같던 세상이 빠르게 변화하고 있습니다. 기존 HR 문법이 통하지 않는 지금, 마이다스는 HR TECH를 통해 채용과 성과관리의 새로운 방향성을 제시합니다.
+                </p>
+              </li>
+              <li class="img_item img_item2">
+                <p class="box_img_title">MIDAS Originals</p>
+                <p class="img_title">The Unchangeable</p>
+                <p class="img_text">
+                  서류, 인적성, 면접 등.. 우리는 지금까지 성과와 무관한 채용을 하고 있을지도 모릅니다. 기존 채용방식의 틀을 깨고 이제는 입체적인 역량 정보로 지원자의 미래 가능성을 확인할 수 있습니다.
+                </p>
+              </li>
+              <li class="img_item img_item3">
+                <p class="box_img_title">MIDAS Originals</p>
+                <p class="img_title">Beyond OKR</p>
+                <p class="img_text">
+                  OKR을 성공적으로 반영하기 위해 고민했던 HR 담당자들의 현실적인 이야기를 들려드립니다. OKR을 넘어 기업의 지속/고속 성장을 위한 새로운 성과 관리 방법과 노하우를 공개합니다.
+                </p>
+              </li>
+              <li class="img_item img_item4">
+                <p class="box_img_title">Keynote #2</p>
+                <p class="img_title">JOHNSON & JOHNSON의 HR 혁명</p>
+                <p class="img_text">
+                  의료 기업에서 토탈 헬스케어 기업으로 변화 중인 존슨앤존슨의 HR 철학과 전략을 소개합니다. 디지털 HR 전환을 바탕으로 글로벌 성장을 지속해오고 있는 존슨앤존슨의 성공적인 혁신을 알아봅시다.
+                </p>
+              </li>
+              <li class="img_item img_item5 on">
+                <p class="box_img_title">Special Talk</p>
+                <p class="img_title">일이란 무엇인가?</p>
+                <p class="img_text">
+                  갤럭시의 성공 신화를 이끈 전 삼성전자 사장 고동진님께서 인사팀에서 일을 시작하셨다는 사실, 아시나요? HR에서 세계 최고 모바일 기기의 사업책임자가 되기까지 성장 노하우를 공개합니다.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="scroll-section-4" class="event anchor-event">
+      <div class="inner">
+        <p class="title" data-aos="fade-up">Event</p>
+        <ul class="event_list">
+          <li class="event_item event_item1" data-aos="fade-up">
+            <span class="event_num">이벤트 01</span>
+            <p class="event_title">따뜻한 댓글 이벤트 </p>
+            <p class="event_text">
+              마이다스인 <strong>링크드인</strong> 게시물에 <strong>주변 HR 동료들을 태그하고 응원의 댓글</strong>을 남겨주세요. 추첨을 통해 50명에게 배민 1만원권을 드립니다.
+            </p>
+            <a href="#" class="event_link" target="_blank">
+              이벤트 참여하기
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M12.4517 20.5339L17.2118 16.0272L12.4517 11.5138L14.0117 9.86719L19.0251 14.6205C19.3935 14.9947 19.6001 15.4987 19.6001 16.0238C19.6001 16.549 19.3935 17.053 19.0251 17.4272L14.0117 22.1805L12.4517 20.5339Z" fill="white"/>
+                </svg>
+              </span>
+            </a>
+            <div class="event_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img1_.png" alt="이벤트 이미지">
+            </div>
+          </li>
+          <li class="event_item event_item2" data-aos="fade-up">
+            <span class="event_num">이벤트 02</span>
+            <p class="event_title">뜨거운 경품 이벤트 </p>
+            <p class="event_text">
+              다양하고 뜨거운 <strong>현장 이벤트</strong>가 준비되어 있습니다. 23년 8월에 새롭게 출시된<br>
+              <strong>갤럭시 신상 제품</strong>들을 경품으로 받아가세요.
+            </p>
+            <div class="event_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img2.png" alt="이벤트 이미지">
+            </div>
+          </li>
+          <li class="event_item event_item3" data-aos="fade-up">
+            <span class="event_num">이벤트 03</span>
+            <p class="event_title">반가운 정보 이벤트</p>
+            <p class="event_text">
+              현장 부스존에는 HR 담당자들의 실무 고민을 해결해줄 <strong>다양한 툴킷 자료와 도서</strong>들이 준비되어 있습니다. 실무에 바로 적용할 아이디어를 얻어가세요.
+            </p>
+            <div class="event_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img3_.png" alt="이벤트 이미지">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="information">
+      <div class="inform_top">
+        <div class="img">
+          <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/inform_img.svg" alt="information image">
+        </div>
+        <div class="inner">
+          <p class="title">Information</p>
+          <p class="stitle">본 행사는 무료로 진행되며, <strong>추첨</strong>을 통해 <strong>참가권</strong>을 드립니다.</p>
+          <ul class="top_list">
+            <li>
+              <p class="li_title">행사일정</p>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                  <rect width="1" height="12" fill="#484343"/>
+                </svg>
+              </span>
+              <p class="li_text">09. 20. 수. 13:00</p>
+            </li>
+            <li>
+              <p class="li_title">행사장소</p>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                  <rect width="1" height="12" fill="#484343"/>
+                </svg>
+              </span>
+              <p class="li_text">양재 THE K 호텔, 그랜드볼룸</p>
+            </li>
+            <li>
+              <p class="li_title">참가대상</p>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                  <rect width="1" height="12" fill="#484343"/>
+                </svg>
+              </span>
+              <p class="li_text">HR 인사담당자, 경영진 및 임원</p>
+            </li>
+          </ul>
+          <a href="#" class="inform_btn" target="_blank">
+            <span class="hover"></span>
+            <span class="text">
+              교통정보 더보기
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="inform_bottom">
+        <div class="inner">
+          <div class="inform_bot_left">
+            안내사항
+          </div>
+          <ul class="inform_bot_list">
+            <li>
+              1. 추첨 결과는 추후 개별 메일로 안내 드립니다.
+            </li>
+            <li>
+              2. 선정되지 못하신 분들께는 온라인 시청 링크를 보내드릴 예정입니다.
+            </li>
+            <li>
+              3. 행사 관련 문의 : 이채원 프로
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                  <rect width="1" height="12" fill="#4F4F4F"/>
+                </svg>
+              </span>
+              <a href="mailto:lcw0514@midasin.com" class="mail">
+                lcw0514@midasin.com
+              </a>
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                  <rect width="1" height="12" fill="#4F4F4F"/>
+                </svg>
+              </span>
+              <a href="tel:01085082806" class="tel">
+                010-8508-2806
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="form" class="form">
+      <div class="form_modal">
+        <a href="#" class="form_close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <path d="M37.2008 13.2008L34.8008 10.8008L24.0008 21.6008L13.2008 10.8008L10.8008 13.2008L21.5908 24.0008L10.8008 34.8008L13.2008 37.2008L24.0008 26.4008L34.8008 37.2008L37.2008 34.8008L26.4008 24.0008L37.2008 13.2008Z" fill="white"/>
+          </svg>
+        </a>
+        <div class="form_inner">
+          <p class="title">HRevolution 2023</p>
+          <p class="form_text">
+            09. 20. 수.  13:00 - 17:30
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                <path d="M0.5 0V12" stroke="#BFA5A5"/>
+              </svg>
+            </span>
+            양재 더 K 호텔 그랜드볼룸
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                <path d="M0.5 0V12" stroke="#BFA5A5"/>
+              </svg>
+            </span>
+            추첨 발표 : 09. 14. 목.
+          </p>
+          <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+              region: "na1",
+              portalId: "21626933",
+              formId: "b0a8f244-58ea-43be-8555-d188bc499f12"
+            });
+          </script>
+        </div>
+        <div class="submit">
+          <p class="submit_stitle">
+            09. 20. 수.  13:00 - 17:30
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                <path d="M0.5 0V12" stroke="#BFA5A5"/>
+              </svg>
+            </span>
+            양재 더 K 호텔 그랜드볼룸
+          </p>
+          <p class="submit_title">
+            HRevolution 2023<br>
+            <strong>참가 신청이 완료되었습니다.</strong>
+          </p>
+          <p class="submit_text">
+            추첨 결과는 오는 <strong>9월 14일 목요일</strong>, 메일로 안내 드리겠습니다.
+          </p>
+          <div class="submit_box">
+            <div class="img_area">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/submit_img.png" alt="스타벅스 이미지">
+            </div>
+            <p class="box_title">
+              간단한 설문 참여하시면<br>
+              커피 한 잔을 드려요
+            </p>
+            <p class="box_sub">
+              (약 3분 소요)
+            </p>
+            <a href="https://moaform.com/q/4qo3so" target="_blank">3분만에 커피 한 잔 받기</a>
+            <p class="box_text">
+              HRevolution 2023 신청하신 분들에 한하여,<br>
+              오직 이 페이지에서만 참여할 수 있는 설문 이벤트입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="qna" class="qna">
+      <p class="title">자주 묻는 질문</p>
+      <div class="tab_wrap">
+        <div class="tab on">사전 신청</div>
+        <div class="tab">행사/세션</div>
+      </div>
+      <div class="content_wrap">
+        <ul class="content on">
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 행사는 무료인가요?</p>
+            <div class="text_wrap">
+              <p class="li_text">본 행사는 별도 참가비 없이 무료로 진행됩니다.</p>
+            </div>
+          </li>
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 사전 신청 프로세스가 궁금해요.</p>
+            <div class="text_wrap">
+              <p class="li_text">
+                사전 신청 완료자 중 <strong>추첨을 통해 오프라인 참가권</strong>을 드립니다.
+                추첨 결과는 9월 14일 (목) 오후 중에 제출하신 메일로 공지 드리겠습니다.
+                아쉽게도 추첨되지 못하신 분들께는 온라인 시청 링크를 보내드릴 예정입니다.
+              </p>
+            </div>
+          </li>
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 사전 신청은 언제까지 할 수 있나요?</p>
+            <div class="text_wrap">
+              <p class="li_text">
+                <strong>9월 13일 (수) 23:59</strong>까지 신청 가능합니다.
+                사전 신청 시, 이름, 이메일 주소, 휴대폰 번호를 정확하게 입력해 주세요.
+                정보를 잘못 입력한 경우 행사 참가가 어려울 수 있습니다.
+              </p>
+            </div>
+          </li>
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 사전 신청이 제대로 되었는지 궁금합니다.</p>
+            <div class="text_wrap">
+              <p class="li_text">
+                사전 신청 시, 제출하신 메일로 신청 완료 이메일이 발송될 예정입니다.
+                알림을 받지 못하셨다면, <a href="mailto:lcw0514@midasin.com" class="mail">lcw0514@midasin.com</a>으로 문의해주세요.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <ul class="content">
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 언제 어디에서 진행하나요?</p>
+            <div class="text_wrap">
+              <p class="li_text">
+                <strong>2023년 9월 20일 (수), 양재 더 K 호텔 그랜드볼룸</strong>에서 진행합니다.
+                오후 12시부터 참가 등록을 시작하며, 1시부터 발표 세션을 시작합니다.
+              </p>
+            </div>
+          </li>
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 당일 어떻게 입장하나요?</p>
+            <div class="text_wrap">
+              <p class="li_text">
+                문자로 보내드린 QR 참가권을 준비해주세요.
+                2층 등록 데스크와 키오스크를 통해 입장을 도와드립니다.
+              </p>
+            </div>
+          </li>
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 각 세션의 발표 자료와 영상을 다시 볼 수 있나요?</p>
+            <div class="text_wrap">
+              <p class="li_text">공개할 수 있는 발표 자료와 영상은 추후 공개 예정입니다.</p>
+            </div>
+          </li>
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 현장에서도 참가 신청을 할 수 있나요?</p>
+            <div class="text_wrap">
+              <p class="li_text">아니요, 현장에서는 따로 참가 신청을 받지 않습니다.</p>
+            </div>
+          </li>
+          <li class="on">
+            <div class="arrow">
+              <span class="arrow_red">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" transform="translate(28 28) rotate(-180)" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 8.7501L22.75 17.5001L21.525 18.7251L14 11.2001L6.475 18.7251L5.25 17.5001L14 8.7501Z" fill="#FF003D"/>
+                </svg>
+              </span>
+              <span class="arrow_white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <rect width="28" height="28" fill="white" style="mix-blend-mode:multiply"/>
+                  <path d="M14 19.2499L5.25 10.4999L6.475 9.2749L14 16.7999L21.525 9.2749L22.75 10.4999L14 19.2499Z" fill="#AF9D9D"/>
+                </svg>
+              </span>
+            </div>
+            <p class="li_title">Q. 주차는 무료인가요?</p>
+            <div class="text_wrap">
+              <p class="li_text">네, 무료 지원됩니다</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="footer">
+      <footer id="footer">
+        <div class="inner">
+            <div class="box_term">
+              <a class="btn_term" href="https://hlab.im/terms" target="_blank">개인정보처리방침</a>
+              <a class="btn_term" href="https://hlab.im/service" target="_blank">서비스 이용약관</a>
+      <!--         <a class="btn_term" href="" target="_blank">이메일 무단 수집 거부</a> -->
+            </div>
+            <div class="info_company">
+              <div class="list_info">
+                <span>(주)자인원</span>
+                <span>대표 : 이형우</span>
+                <span>사업자등록번호 : 170-88-01418</span>
+              </div>
+              <span>고객문의 : inhr_mkt@jainwon.com</span>
+              <span>©JAINWON Co., Ltd.</span>
+            </div>
+        </div>
+      </footer>
+    </section>
   </div>
+  <!-- privacy - start -->
+  <div class="modal" name="modal_hubspot_00">
+    <button class="btn_close">닫기 버튼</button>
+    <div class="cont_modal">
+      <h4>개인정보 수집 및 이용 동의 (필수)</h4>
+      <dl>
+        <dt>개인정보를 제공받는 자</dt>
+        <dd>(주)자인원</dd>
+      </dl>
+      <dl>
+        <dt>개인정보를 제공받는 자의 개인정보 이용 목적</dt>
+        <dd>본인 확인 및 HR 솔루션 소개서 및 상담, 세미나 신청 처리</dd>
+      </dl>
+      <dl>
+        <dt>수집하는 개인정보 항목</dt>
+        <dd>이름, 회사명, 직책/직급, 휴대전화번호, 이메일.</dd>
+      </dl>
+      <dl>
+        <dt>개인정보 보유 및 이용기간</dt>
+        <dd>1) 회사는 법령에 따른 개인정보 보유∙이용기간 또는 정보주체로부터 개인정보를 수집시에 동의받은 개인정보 보유∙이용기간 내에서 개인정보를 처리하며, 개인정보의 처리 목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</dd>
+        <dd>2) 수집한 개인정보는 1년간 보관하며, 이후 해당 정보를 지체 없이 파기합니다. 단, 통신비밀보호법의 규정에 의하여 정보주체의 인터넷 로그기록 및 접속지 추적자료는 3개월간 별도 보관합니다</dd>
+      </dl>
+    </div>
+  </div>
+  <!-- privacy - end -->
 
-  <script src="pointCircle.js"></script>
+  <!-- marketing - start -->
+  <div class="modal" name="modal_hubspot_01">
+    <button class="btn_close">닫기 버튼</button>
+    <div class="cont_modal">
+      <h4>홍보, 마케팅 목적 이용 동의(선택)</h4>
+      <dl>
+        <dt>개인정보를 제공받는 자</dt>
+        <dd>(주)자인원</dd>
+      </dl>
+      <dl>
+        <dt>개인정보를 제공받는 자의 개인정보 이용 목적</dt>
+        <dd>프로모션, 이벤트, 설문조사 및 광고성 정보 제공 등의 홍보 및 마케팅에 활용</dd>
+      </dl>
+      <dl>
+        <dt>수집하는 개인정보 항목</dt>
+        <dd>이름, 회사명, 부서명, 직함, 휴대전화번호, 이메일.</dd>
+      </dl>
+      <dl>
+        <dt>개인정보 보유 및 이용기간</dt>
+        <dd>홍보 · 마케팅 목적 이용 동의로 수집 된 개인정보는 이용 목적 달성 시까지 보관되며, 귀하께서 동의 철회 시 개인정보는 마케팅에 이용되지 않습니다.</dd>
+      </dl>
+      <dl>
+        <dt>동의 거부 시 불이익</dt>
+        <dd>귀하는 개인정보 홍보 및 마케팅 이용에 대한 동의를 거부할 권리가 있으며, 개인정보 홍보 및 마케팅 이용에 동의하지 않을 경우 HR 솔루션 관련 프로모션, HR 이벤트 등의 정보를 제공 받을 수 없습니다.</dd>
+      </dl>
+    </div>
+  </div>
+  <!-- marketing - end -->
+
+  <div id="dim" class="btn_close"></div><!-- dim -->
+  <div id="form_dim"></div>
+
+<script>
+  let hypenTel = (target) => {
+    target.value = target.value
+      .replace(/[^0-9]/g, '')
+      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+  }
+  
+  const contactTel = document.querySelectorAll('.contact_tel');
+  for(const i of contactTel) {
+    let telNumber = i.innerHTML.replace(/-/g, '');
+    i.setAttribute('href', `tel:${telNumber}`);
+  }
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // aos animation library - start
+    AOS.init({ 
+      duration: 600,
+    });
+    // aos animation library - end
+  </script>
+  <script src="js/main.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const body = document.querySelector('body');
+      body.classList.remove('preload');
+    })
+  </script>
 </body>
 </html>
