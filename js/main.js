@@ -35,6 +35,7 @@
         barLeft: document.querySelector('.bar_left'),
         barRight: document.querySelector('.bar_right'),
         overlay: document.querySelector('.story .overlay'),
+        inner: document.querySelector('.story .inner'),
       },
       values: {
         messageA_opacity_in: [0, 1, { start: 0.1, end: 0.3 }],
@@ -50,8 +51,8 @@
         messageD_translateY_in: [40, 0, { start: 3.1, end: 3.3 }],
         messageE_translateY_in: [0, 0, { start: 3.1, end: 3.1 }],
         colon_width_in: [0, 33, { start: 2.1, end: 2.35 }],
-        overlay_change_in: [0.8, 1, { start: 1.8, end: 2}],
-        overlay_change_out: [1, 0.8, { start: 2, end: 2.2}],
+        overlay_change_in: [0.8, 1, { start: 1.8, end: 2 }],
+        overlay_change_out: [1, 0.8, { start: 2, end: 2.2 }],
         
 				messageA_opacity_out: [1, 0, { start: 0.6, end: 0.8 }],
 				messageB_opacity_out: [1, 0, { start: 1.6, end: 1.8 }],
@@ -64,7 +65,7 @@
 				messageB_translateY_out: [0, -50, { start: 1.6, end: 1.9 }],
 				messageC_translateY_out: [0, -50, { start: 2.6, end: 2.9 }],
 				messageD_translateY_out: [0, -50, { start: 3.6, end: 3.9 }],
-        bar_width_out: [10.4, 0, { start: -0.7, end: -0.2}]
+        bar_width_out: [10.4, 0, { start: -0.7, end: -0.2}],
       }
 		},
     {
@@ -252,10 +253,10 @@
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
 
-        // if any scroll is attempted, set this to the previous value
-        window.onscroll = function() {
-            window.scrollTo(scrollLeft, scrollTop);
-        };
+    // if any scroll is attempted, set this to the previous value
+    window.onscroll = function() {
+        window.scrollTo(scrollLeft, scrollTop);
+    };
   }
 
   function enableScroll() {
@@ -293,7 +294,9 @@
       // }
   
       // 시작
-      disableScroll();
+      if(innerWidth > 768) {
+        disableScroll();
+      }
       window.addEventListener('wheel', () => {
         if(videoPlayed == 0) {
           videoIntro.play();
@@ -479,7 +482,7 @@
             // out
             objs.messageB.style.opacity = calcValues(values.messageB_opacity_out, currentYOffset);
             objs.messageB.style.transform = `translate3d(0, ${calcValues(values.messageB_translateY_out, currentYOffset)}%, 0)`;
-            objs.overlay.style.opacity = calcValues(values.overlay_change_in, currentYOffset);
+            // objs.overlay.style.opacity = calcValues(values.overlay_change_in, currentYOffset);
           }
           objs.messageA.style.opacity = 0;
           // objs.messageB.style.opacity = 0;
@@ -494,7 +497,7 @@
             objs.messageC.style.transform = `translate3d(0, ${calcValues(values.messageC_translateY_in, currentYOffset)}%, 0)`;
             objs.colon.style.opacity = calcValues(values.colon_opacity_in, currentYOffset);
             objs.colon.style.width = `${calcValues(values.colon_width_in, currentYOffset)}px`;
-            objs.overlay.style.opacity = calcValues(values.overlay_change_out, currentYOffset);
+            // objs.overlay.style.opacity = calcValues(values.overlay_change_out, currentYOffset);
           } else {
             // out
             objs.messageC.style.opacity = calcValues(values.messageC_opacity_out, currentYOffset);
@@ -1148,7 +1151,7 @@
   const footerFixed = () => {
     const fixedPoint = document.querySelector('.form');
     const footer = document.querySelector('#footer');
-    if(scrollY > fixedPoint.offsetTop) {
+    if(scrollY > fixedPoint.offsetTop + fixedPoint.getBoundingClientRect().height / 2) {
       footer.style.position = 'fixed';
     } else {
       footer.style.position = 'absolute';
@@ -1157,26 +1160,50 @@
 
   // formModal
   const formModal = () => {
+    
     const formBtn = document.querySelectorAll('.form_btn');
     const form = document.querySelector('.form .form_modal');
     const formDim = document.getElementById('form_dim');
     const close = document.querySelector('.form_close');
+
+    if(innerHeight <= 1077 && form.classList.contains('active')) {
+      form.classList.add('active_res');
+      form.style.height = `${innerHeight - 72}px`;
+    } else if(innerHeight > 1077 && form.classList.contains('active')) {
+      if (form.classList.contains('active_res')) {
+        form.classList.remove('active_res');
+        form.style.height = '1005px';
+      }
+    } else {
+      form.classList.remove('active_res');
+      form.classList.remove('active');
+      form.style.height = '1005px';
+    }
+
     formBtn.forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
         formDim.classList.add('on');
-        form.classList.add('active');
+        if(innerHeight <= 1077) {
+          form.classList.add('active');
+          form.classList.add('active_res');
+          form.style.height = `${innerHeight - 72}px`;
+        } else {
+          form.classList.add('active');
+        }
       });
     });
     close.addEventListener('click', (e) => {
       e.preventDefault();
       formDim.classList.remove('on');
       form.classList.remove('active');
+      form.classList.remove('active_res');
     });
     formDim.addEventListener('click', (e) => {
       e.preventDefault();
       formDim.classList.remove('on');
       form.classList.remove('active');
+      form.classList.remove('active_res');
     });
   }
 
@@ -1226,6 +1253,8 @@
     attendInteraction();
     sessionInteraction();
     eventFixed();
+
+    formModal();
   });
 
   window.addEventListener('scroll', () => {
@@ -1245,19 +1274,20 @@
   });
 
   // const cursor = document.querySelector('.custom_cursor');
-  // const cursorArea = document.querySelector('.session .table_list');
-  // cursorArea.addEventListener('mouseenter', (e) => {
-  //   setTimeout(() => {cursor.style.position = 'fixed';}, 100);
-  //   cursor.style.opacity = 1;
-  //   cursorArea.addEventListener('mousemove', (e) => {
-  //     cursor.style.left = `${e.clientX}px`;
-  //     cursor.style.top = `${e.clientY}px`;
-      
-  //   })
+  // const cursorArea = document.querySelectorAll('.session .table_item.session_item');
+  // cursorArea.forEach(() => {
+  //   el.addEventListener('mouseenter', (e) => {
+  //     setTimeout(() => {cursor.style.position = 'fixed';}, 100);
+  //     cursor.style.opacity = 1;
+  //     cursorArea.addEventListener('mousemove', (e) => {
+  //       cursor.style.left = `${e.clientX}px`;
+  //       cursor.style.top = `${e.clientY}px`;
+  //     })
+  //   });
+  //   el.addEventListener('mouseleave', (e) => {
+  //     setTimeout(() => {cursor.style.position = 'absolute';}, 100);
+  //     cursor.style.opacity = 0;
+  //   });
   // })
-  // cursorArea.addEventListener('mouseleave', (e) => {
-  //   setTimeout(() => {cursor.style.position = 'absolute';}, 100);
-  //   cursor.style.opacity = 0;
-  // });
 })();
 
