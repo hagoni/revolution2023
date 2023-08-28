@@ -173,8 +173,8 @@
         if(document.querySelector(`.anchor-${menuName}`)){
           let moveLocation = document.querySelector(`.anchor-${menuName}`).offsetTop;
           
-          if(document.querySelector('header')){
-            const header = document.querySelector('header').getBoundingClientRect();
+          if(document.querySelector('header.mobile')){
+            const header = document.querySelector('header.mobile').getBoundingClientRect();
             window.innerWidth > 768 ? window.scrollTo({ top: moveLocation - header.height, behavior: 'smooth' }) : window.scrollTo({ top: moveLocation - header.height });
           }else{
             window.innerWidth > 768 ? window.scrollTo({ top: moveLocation, behavior: 'smooth' }) : window.scrollTo({ top: moveLocation });
@@ -233,7 +233,7 @@
     const mainTitle = document.querySelector('.main_visual .mv_title');
     const mainLocation = document.querySelector('.main_visual .mv_location');
     const mainDate = document.querySelector('.main_visual .mv_date');
-    const mainButton = document.querySelector('.main_visual .mv_btn');
+    const mainButton = document.querySelector('.main_visual .mv_btn.btn_pc');
     mainTitle.style.transform = 'translate3d(0, 0, 0)';
     mainTitle.style.opacity = '1';
     mainTitle.style.filter ='blur(0)';
@@ -247,21 +247,6 @@
     mainButton.style.opacity = '1';
     mainButton.style.filter ='blur(0)';
   }
-
-  function disableScroll() {
-    // Get the current page scroll position
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-
-    // if any scroll is attempted, set this to the previous value
-    window.onscroll = function() {
-        window.scrollTo(scrollLeft, scrollTop);
-    };
-  }
-
-  function enableScroll() {
-    window.onscroll = function() {};
-  }
   
   // 메인 영상 재생
   const mainVideoHandler = () => {
@@ -269,7 +254,7 @@
     const body = document.querySelector('body');
     const videoIntro = document.querySelector('#mv_video_intro');
     const videoLoop = document.querySelector('#mv_video_loop');
-    const header = document.querySelector('header');
+    const header = document.querySelector('header.pc');
     const textArea = document.querySelector('.main_visual .mv_text_area')
     const mainScrollBtn = document.querySelector('.main_visual .scroll_btn');
     let counter = 0;
@@ -294,9 +279,6 @@
       // }
   
       // 시작
-      if(innerWidth > 768) {
-        disableScroll();
-      }
       window.addEventListener('wheel', () => {
         if(videoPlayed == 0) {
           videoIntro.play();
@@ -314,7 +296,9 @@
         const pauseDetector = () => {
           if(videoIntro.paused) {
             videoLoop.play();
-            setTimeout(enableScroll, 1000);
+            setTimeout(() => {
+              document.querySelector('body').classList.remove('no-scroll');
+            }, 1000);
             videoPlayed = 1;
             videoIntro.style.opacity = 0;
             clearInterval(interval);
@@ -787,13 +771,15 @@
   // }
 
   // attend swiper
-  const swiper = new Swiper('.attend .swiper .swiper-container', {  
-    spaceBetween: 40,
-    navigation: {
-      nextEl: '.attend .swiper-button-next',
-      prevEl: '.attend .swiper-button-prev',
-    },
-  });
+  const attendSwiper = () => {
+    const swiper = new Swiper('.attend .swiper .swiper-container', {  
+      spaceBetween: 40,
+      navigation: {
+        nextEl: '.attend .swiper-button-next',
+        prevEl: '.attend .swiper-button-prev',
+      },
+    });
+  }
 
   // attend interaction
   const attendInteraction = () => {
@@ -1218,59 +1204,271 @@
     }
   };
 
-  setLayout();
+  // mAnchorHandler
+  const mAnchorHandler = () => {
+    const formBtn = document.querySelectorAll('.form_btn');
+    formBtn.forEach(el => {
+      el.dataset.anchor = 'scroll';
+    })
+  }
+  const removeMAnchorHandler = () => {
+    const formBtn = document.querySelectorAll('.form_btn');
+    formBtn.forEach(el => {
+      el.dataset.anchor = '';
+    })
+  }
 
-  mainVideoRatio();
-  mainScrollButton();
-  mainVideoHandler();
+  // mAnimation
+  const mAnimation = (type) => {
+    const attendTitle = document.querySelector('.attend .title');
+    const attendItems = document.querySelectorAll('.attend .swiper-slide');
+    const sessionTitle = document.querySelector('.session .title');
+    const sessionText = document.querySelector('.session .text');
+    if(type === "mobile") {
+      attendTitle.dataset.aos = "fade-up";
+      attendItems.forEach(el => {
+        el.dataset.aos = "fade-up";
+      });
+      sessionTitle.dataset.aos = "fade-up";
+      sessionText.dataset.aos = "fade-up";
+    } else {
+
+    }
+  }
+
+  // mHeader
+  const mHeader = () => {
+    const header = document.querySelector('header.mobile');
+    const headerMenu = document.querySelector('.mobile_gnb');
+    const buttons = document.querySelectorAll('.mobile_gnb a');
+    const openBtn = document.querySelector('header.mobile .menu');
+    const closeBtn = document.querySelector('header.mobile .close');
+    
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      header.classList.add('on');
+      headerMenu.classList.add('on');
+    });
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      header.classList.remove('on');
+      headerMenu.classList.remove('on');
+    });
+    buttons.forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        header.classList.remove('on');
+        headerMenu.classList.remove('on');
+      })
+    })
+  }
+  mHeader();
+
+  // mMainHandler
+  const mMainHandler = () => {
+    document.querySelector('.main_visual video#mv_video_loop').play();
+    const mainTitle = document.querySelector('.main_visual .mv_title');
+    const mainLocation = document.querySelector('.main_visual .mv_location');
+    const mainDate = document.querySelector('.main_visual .mv_date');
+    const mainBtn = document.querySelector('.main_visual .mv_btn.btn_m');
+    mainTitle.style.opacity = 1;
+    mainTitle.style.filter = 'blur(0)';
+    mainTitle.style.transform = 'translate3d(0, 0, 0)';
+    mainLocation.style.opacity = 1;
+    mainLocation.style.filter = 'blur(0)';
+    mainLocation.style.transform = 'translate3d(0, 0, 0)';
+    mainDate.style.opacity = 1;
+    mainDate.style.filter = 'blur(0)';
+    mainDate.style.transform = 'translate3d(0, 0, 0)';
+    mainBtn.style.opacity = 1;
+    mainBtn.style.filter = 'blur(0)';
+    mainBtn.style.transform = 'translate3d(0, 0, 0)';
+  }
+
+  // mStoryHandler
+  const mStoryHandler = () => {
+    const story = document.querySelector('.story');
+    const storyTitle = document.querySelector('.story .title');
+    const storyTexts = document.querySelectorAll('.story .text');
+    const storyVideoWrap = document.querySelector('.story .video_fixed');
+    const storyVideo = document.querySelector('.story video');
+    const topOffset = document.querySelector('.main_visual').getBoundingClientRect().height;
+    story.style.height = `${outerHeight * 4}px`;
+    if(scrollY <= topOffset / 2) {
+      // 진입 전
+      storyVideo.pause();
+      storyTitle.style.opacity = 1;
+      storyTexts[1].style.opacity = 1;
+      storyTexts[3].style.opacity = 0;
+      storyTexts[4].style.opacity = 0;
+    } else if(scrollY > topOffset / 2 && scrollY < topOffset + outerHeight) {
+      // 절반 지난 시점(영상 play)
+      storyVideo.play();
+      storyTitle.style.opacity = 1;
+      storyTexts[1].style.opacity = 1;
+      storyTexts[3].style.opacity = 0;
+      storyTexts[4].style.opacity = 0;
+    } else if(scrollY > topOffset && scrollY < topOffset + outerHeight) {
+      // 첫번째 섹션
+      storyTitle.style.opacity = 1;
+      storyTexts[1].style.opacity = 1;
+      storyTexts[3].style.opacity = 0;
+      storyTexts[4].style.opacity = 0;
+    } else if(scrollY > topOffset + outerHeight && scrollY < topOffset + outerHeight * 2){
+      // 두번째 섹션
+      storyTexts[1].style.opacity = 0;
+      storyTexts[3].style.opacity = 1;
+      storyTexts[4].style.opacity = 0;
+    } else if(scrollY > topOffset + outerHeight * 2 && scrollY < topOffset + outerHeight * 3){
+      // 세번째 섹션
+      storyTitle.style.opacity = 1;
+      storyVideoWrap.style.opacity = 1;
+      storyTexts[1].style.opacity = 0;
+      storyTexts[3].style.opacity = 0;
+      storyTexts[4].style.opacity = 1;
+    } else if(scrollY > topOffset + outerHeight * 3 && scrollY < topOffset + outerHeight * 4){
+      storyVideo.play();
+      storyTitle.style.opacity = 0;
+      storyVideoWrap.style.opacity = 0;
+      storyTexts[1].style.opacity = 0;
+      storyTexts[3].style.opacity = 0;
+      storyTexts[4].style.opacity = 0;
+    } else {
+      // 진입 후
+      storyVideo.pause();
+    }
+  }
   
-  storyInteraction();
-  storyVideoRatio();
-
-  attendInteraction();
-
-  hoverSlide();
-
-  eventFixed();
-
-  formModal();
+  // mSlideHandler
+  const mSlideHandler = () => {
+    const swiper = new Swiper('.slide .slide_list_wrap', {
+      spaceBetween: 14,
+    });
+  }
 
   qnaTabHandler();
   qnaListHandler();
 
-  topBtnHandler();
-
-
-
-  window.addEventListener('resize', () => {
+  if (matchMedia("screen and (min-width: 767px)").matches) {
+    // pc버전에서 실행
+    console.log('PC!')
     setLayout();
-    mainVideoRatio();
 
-    storyFixed();
+    mainVideoRatio();
+    mainScrollButton();
+    mainVideoHandler();
+    
     storyInteraction();
     storyVideoRatio();
 
+    attendSwiper();
     attendInteraction();
-    sessionInteraction();
+
+    hoverSlide();
+
     eventFixed();
 
     formModal();
-  });
-
-  window.addEventListener('scroll', () => {
-    storyFixed();
-    storyInteraction();
-
-    slideSS();
-
-    attendInteraction();
-
-    sessionInteraction();
-
-    eventFixed();
-    footerFixed();
 
     topBtnHandler();
+
+    window.addEventListener('scroll', () => {
+      storyFixed();
+      storyInteraction();
+  
+      slideSS();
+  
+      attendInteraction();
+  
+      sessionInteraction();
+  
+      eventFixed();
+      footerFixed();
+  
+      topBtnHandler();
+    });
+  } else {
+    // mobile버전에서 실행
+    console.log('MOBILE!!');
+
+    mAnimation("mobile");
+    mAnchorHandler();
+    mMainHandler();
+    mStoryHandler();
+    mSlideHandler();
+    window.addEventListener('scroll', () => {
+      mStoryHandler();
+    });
+  }
+
+  let reloadCounter;
+  const reloadHandler = () => {
+    if (matchMedia("screen and (min-width: 767px)").matches) {
+      reloadCounter = 1;
+    } else {
+      reloadCounter = 0;
+    }
+  }
+  reloadHandler();
+
+  window.addEventListener('resize', () => {
+    if (matchMedia("screen and (min-width: 767px)").matches) {
+      // pc버전에서 실행
+      console.log('PC RESIZE!');
+      if (reloadCounter === 0) {
+        location.reload();
+        reloadCounter++;
+      }
+      setLayout();
+
+      mainVideoRatio();
+      mainScrollButton();
+      mainVideoHandler();
+      
+      storyInteraction();
+      storyVideoRatio();
+
+      attendSwiper();
+      attendInteraction();
+
+      hoverSlide();
+
+      eventFixed();
+
+      formModal();
+
+      qnaTabHandler();
+      qnaListHandler();
+
+      topBtnHandler();
+
+      removeMAnchorHandler();
+      window.addEventListener('scroll', () => {
+        storyFixed();
+        storyInteraction();
+    
+        slideSS();
+        
+        attendInteraction();
+    
+        sessionInteraction();
+    
+        eventFixed();
+        footerFixed();
+    
+        topBtnHandler();
+      });
+    } else {
+      // mobile버전에서 실행
+      console.log('MOBILE RESIZE!');
+      if(reloadCounter === 1) {
+        location.reload();
+        reloadCounter--;
+      }
+      mAnimation("mobile");
+
+      
+    }
   });
 
   // const cursor = document.querySelector('.custom_cursor');

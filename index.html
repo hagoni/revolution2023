@@ -11,10 +11,10 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="preload">
+<body class="preload no-scroll">
   <div id="wrap">
     <a href="#top" class="top_btn" data-anchor="scroll"></a>
-    <header>
+    <header class="pc">
       <a href="#top" class="home" data-anchor="scroll">HRevolution 2023</a>
       <div class="gnb">
         <a href="#session" class="header_li" data-anchor="scroll">Session</a>
@@ -22,6 +22,31 @@
       </div>
       <a href="#" class="header_btn form_btn"><span class="hover"></span><span class="text">참가신청<i><img src="https://hlab.im/hubfs/2023%20HREVOLUTION/header_icon.svg" alt="icon"></i></span></a>
     </header>
+    <header class="mobile">
+      <a href="#top" class="home" data-anchor="scroll">HRevolution 2023</a>
+      <a href="#" class="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M24.6668 8.91357H7.3335V11.1802H24.6668V8.91357Z" fill="white"/>
+          <path d="M24.6668 14.8669H7.3335V17.1336H24.6668V14.8669Z" fill="white"/>
+          <path d="M24.6668 20.8202H7.3335V23.0869H24.6668V20.8202Z" fill="white"/>
+        </svg>
+      </a>
+      <a href="#" class="close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" fill="none" style="mix-blend-mode:multiply"/>
+          <path d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4L14.6 16L8 22.6L9.4 24L16 17.4L22.6 24L24 22.6L17.4 16L24 9.4Z" fill="white"/>
+        </svg>
+      </a>
+    </header>
+    <div class="mobile_gnb">
+      <div>
+        <a href="#session" data-anchor="scroll">SESSIONS</a>
+        <a href="#event" data-anchor="scroll">EVENT</a>
+      </div>
+      <p>
+        ©JAINWON Co., Ltd.
+      </p>
+    </div>
     <section class="main_visual full_height scroll-section anchor-top" id="scroll-section-0">
       <div class="scroll_btn">
         <i><img src="https://hlab.im/hubfs/2023%20HREVOLUTION/mv_scroll_icon.svg" alt="icon"></i>
@@ -42,8 +67,13 @@
         <p class="mv_date">
           2023. 09. 20. 수. 13:00
         </p>
-        <a href="#" class="mv_btn form_btn">
+        <a href="#" class="mv_btn form_btn btn_pc">
           <span class="hover"></span>
+          <span class="text">
+            HRevolution <span class="sub">참가신청</span>
+          </span>
+        </a>
+        <a href="#form" class="mv_btn form_btn btn_m" data-anchor="scroll">
           <span class="text">
             HRevolution <span class="sub">참가신청</span>
           </span>
@@ -78,9 +108,9 @@
     <section class="slide scroll-section" id="scroll-section-2">
       <div class="inner">
         <div class="slide_inner">
-          <div class="slide_list_wrap">
-            <ul class="slide_list">
-              <li class="slide_item a">
+          <div class="slide_list_wrap swiper-container">
+            <ul class="slide_list swiper-wrapper">
+              <li class="slide_item swiper-slide a">
                 <div class="img_area">
                   <p class="slide_title">국내 최대<br>HR-TECH<br>컨퍼런스</p>
                 </div>
@@ -89,8 +119,11 @@
                   <p class="line2"><strong>HR 담당자들</strong>이 함께하는 최대 규모 HR 컨퍼런스입니다.</p>
                   <p class="line3">더 나은 HR을 위해 발전시켜온 <strong>HR-TECH</strong>를 만나보세요.</p>
                 </div>
+                <p class="text_area_m">
+                  HRevolution은 5년째 <strong>1,000여명의 HR<br>담당자들</strong>이 함께하는 최대 규모 HR 컨퍼런스입니다. <br>더 나은 HR을 위해 발전시켜온 <br><strong>HR-TECH</strong>를 만나보세요.
+                </p>
               </li>
-              <li class="slide_item b">
+              <li class="slide_item swiper-slide b">
                 <div class="img_area">
                   <p class="slide_title">국내 최고<br>리더들이 전하는<br>HR 노하우</p>
                 </div>
@@ -99,8 +132,11 @@
                   <p class="line2"><strong>전 삼성전자 고동진 사장님</strong>의 성장 노하우와 <strong>존슨앤존슨</strong></p>
                   <p class="line3"><strong>컨슈머 채병권 이사님</strong>의 HR 혁신 사례가 준비되어 있습니다.</p>
                 </div>
+                <p class="text_area_m">
+                  분야를 뛰어넘는 리더들의 지혜를 만나보세요. <br><strong>전 삼성전자 고동진 사장님</strong>의 성장 노하우와 <strong>존슨앤존<br>슨</strong> <strong>컨슈머 채병권 이사님</strong>의 HR 혁신 사례가 준비되어 <br>있습니다.
+                </p>
               </li>
-              <li class="slide_item c">
+              <li class="slide_item swiper-slide c">
                 <div class="img_area">
                   <p class="slide_title">국내 최초<br>HR 트렌드를<br>써내려가는 현장</p>
                 </div>
@@ -109,6 +145,9 @@
                   <p class="line2"><strong>‘역량 기반 채용’</strong>이라는 트렌드를 만들었던,</p>
                   <p class="line3">HRevolution이 다시 한번 여러분 곁을 찾아갑니다.</p>
                 </div>
+                <p class="text_area_m">
+                  <strong>‘AI 면접’</strong> 이라는 세상에 없던 개념을 만들고, <br><strong>‘역량 기반 채용’</strong>이라는 트렌드를 만들었던, <br>HRevolution이 다시 한번 여러분 곁을 찾아갑니다.
+                </p>
               </li>
             </ul>
           </div>
@@ -203,8 +242,8 @@
                     혁신이 필요해요.
                   </p>
                   <p class="slide_text">
-                    <strong>임원, 경영진분</strong>들을 위해 최고의 비즈니스 리더,<br>
-                    <strong>전 삼성전자 사장 고동진</strong>님을 어렵게 모셨습니다.<br>
+                    <strong>임원, 경영진분</strong>들을 위해 최고의 비즈니스 <br class="br_m">리더,<br class="br_pc">
+                    <strong>전 삼성전자 사장 고동진</strong>님을 어렵게 모셨습니다.<br class="br_pc">
                     HR의 변화가 불러올 기업의 혁신을 살펴보세요.
                   </p>
                   <p class="hashtag"><span>#임원</span><span>#경영진</span><span>#북토크</span></p>
@@ -220,7 +259,7 @@
         <div class="title_area">
           <p class="title">Session</p>
           <p class="text">
-            09. 20. 수. 13:00 - 17:30
+            09. 20. 수. 13:00 - 17:30<br class="br_m">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="1" height="14" viewBox="0 0 1 14" fill="none">
                 <path d="M0.5 0V14" stroke="#6D6F74"/>
@@ -352,6 +391,78 @@
             </ul>
           </div>
         </div>
+        <ul class="m_list">
+          <li class="m_item" data-aos="fade-up">
+            <div class="m_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/session_img_m_1.png" alt="session image">
+            </div>
+            <p class="m_key">Keynote #1</p>
+            <p class="m_title">HR Tech, 틀을깨고 나아가다</p>
+            <p class="m_text">
+              멈춘것 같던 세상이 빠르게 변화하고 있습니다. 기존 HR 문법이 통하지 않는 지금, 마이다스는 HR TECH를 통해 채용과 성과관리의 새로운 방향성을 제시합니다.
+            </p>
+            <p class="m_speaker">Speaker</p>
+            <p class="m_name">마이다스인 김재승 외 2명</p>
+          </li>
+          <li class="m_item break">Break Time</li>
+          <li class="m_item" data-aos="fade-up">
+            <div class="m_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/session_img_m_2.png" alt="session image">
+            </div>
+            <p class="m_key">MIDAS Originals</p>
+            <p class="m_title">‘사람을 봅니다’ 비긴즈</p>
+            <p class="m_text">
+              서류, 인적성, 면접 등.. 우리는 지금까지 성과와 무관한 채용을 하고 있을지도 모릅니다. 기존 채용방식의 틀을 깨고 이제는 입체적인 역량 정보로 지원자의 미래 가능성을 확인할 수 있습니다.
+            </p>
+            <p class="m_speaker">Speaker</p>
+            <p class="m_name">마이다스 NC센터</p>
+          </li>
+          <li class="m_item" data-aos="fade-up">
+            <div class="m_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/session_img_m_3.png" alt="session image">
+            </div>
+            <p class="m_key">MIDAS Originals</p>
+            <p class="m_title">Beyond OKR, 성과 준비 완료</p>
+            <p class="m_text">
+              OKR을 성공적으로 반영하기 위해 고민했던 HR 담당자들의 현실적인 이야기를 들려드립니다. OKR을 넘어 기업의 지속/고속 성장을 위한 새로운 성과 관리 방법과 노하우를 공개합니다.
+            </p>
+            <p class="m_speaker">Speaker</p>
+            <p class="m_name">마이다스 자인연구소</p>
+          </li>
+          <li class="m_item break">Break Time</li>
+          <li class="m_item" data-aos="fade-up">
+            <div class="m_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/session_img_m_4.png" alt="session image">
+            </div>
+            <p class="m_key">Keynote #2</p>
+            <p class="m_title">JOHNSON & JOHNSON의 HR 혁명</p>
+            <p class="m_text">
+              의료 기업에서 토탈 헬스케어 기업으로 변화 중인 존슨앤존슨의 HR 철학과 전략을 소개합니다. 디지털 HR 전환을 바탕으로 글로벌 성장을 지속해오고 있는 존슨앤존슨의 성공적인 혁신을 알아봅시다.
+            </p>
+            <p class="m_speaker">Speaker</p>
+            <p class="m_name">존슨앤존슨 컨수머 채병권</p>
+          </li>
+          <li class="m_item" data-aos="fade-up">
+            <div class="m_img">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/session_img_m_5.png" alt="session image">
+            </div>
+            <p class="m_key">Special Talk</p>
+            <p class="m_title">일이란 무엇인가?</p>
+            <p class="m_text">
+              갤럭시의 성공 신화를 이끈 전 삼성전자 사장 고동진님께서 인사팀에서 일을 시작하셨다는 사실, 아시나요? HR에서 세계 최고 모바일 기기의 사업책임자가 되기까지 성장 노하우를 공개합니다.
+            </p>
+            <p class="m_speaker">Speaker</p>
+            <p class="m_name">
+              삼성전자 고동진
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                  <rect width="1" height="12" fill="#626262"/>
+                </svg>
+              </span>
+              <em>전 IM부문장, 대표이사 사장</em>
+            </p>
+          </li>
+        </ul>
       </div>
     </section>
     <section id="scroll-section-4" class="event anchor-event">
@@ -362,7 +473,7 @@
             <span class="event_num">이벤트 01</span>
             <p class="event_title">따뜻한 댓글 이벤트 </p>
             <p class="event_text">
-              마이다스인 <strong>링크드인</strong> 게시물에 <strong>주변 HR 동료들을 태그하고 응원의 댓글</strong>을 남겨주세요. 추첨을 통해 50명에게 배민 1만원권을 드립니다.
+              마이다스인 <strong>링크드인</strong> 게시물에 <strong>주변 HR 동료<br class="br_m">들을 태그하고 응원의 댓글</strong>을 남겨주세요. 추<br class="br_m">첨을 통해 50명에게 배민 1만원권을 드립니다.
             </p>
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7100383098839724032" class="event_link" target="_blank">
               이벤트 참여하기
@@ -373,28 +484,31 @@
               </span>
             </a>
             <div class="event_img">
-              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img1_.png" alt="이벤트 이미지">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img1_.png" alt="이벤트 이미지" class="img_pc">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img_m_1.png" alt="이벤트 이미지" class="img_m">
             </div>
           </li>
           <li class="event_item event_item2" data-aos="fade-up">
             <span class="event_num">이벤트 02</span>
             <p class="event_title">뜨거운 경품 이벤트 </p>
             <p class="event_text">
-              다양하고 뜨거운 <strong>현장 이벤트</strong>가 준비되어 있습니다. 23년 8월에 새롭게 출시된<br>
+              다양하고 뜨거운 <strong>현장 이벤트</strong>가 준비되어 <br class="br_m">있습니다. 23년 8월에 새롭게 출시된<br>
               <strong>갤럭시 신상 제품</strong>들을 경품으로 받아가세요.
             </p>
             <div class="event_img">
-              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img2.png" alt="이벤트 이미지">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img2.png" alt="이벤트 이미지" class="img_pc">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img_m_2.png" alt="이벤트 이미지" class="img_m">
             </div>
           </li>
           <li class="event_item event_item3" data-aos="fade-up">
             <span class="event_num">이벤트 03</span>
             <p class="event_title">반가운 정보 이벤트</p>
             <p class="event_text">
-              현장 부스존에는 HR 담당자들의 실무 고민을 해결해줄 <strong>다양한 툴킷 자료와 도서</strong>들이 준비되어 있습니다. 실무에 바로 적용할 아이디어를 얻어가세요.
+              현장 부스존에는 HR 담당자들의 실무 고민을 <br class="br_m">해결해줄 <strong>다양한 툴킷 자료와 도서</strong>들이 <br class="br_m">준비되어 있습니다. 실무에 바로 적용할 <br class="br_m">아이디어를 얻어가세요.
             </p>
             <div class="event_img">
-              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img3__.png" alt="이벤트 이미지">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img3__.png" alt="이벤트 이미지" class="img_pc">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/event_img_m_3.png" alt="이벤트 이미지" class="img_m">
             </div>
           </li>
         </ul>
@@ -403,11 +517,12 @@
     <section class="information">
       <div class="inform_top">
         <div class="img">
-          <video src="https://hlab.im/hubfs/2023%20HREVOLUTION/02_neon%20line_linear%202.mp4" playsinline muted autoplay loop></video>
+          <video class="video_pc" src="https://hlab.im/hubfs/2023%20HREVOLUTION/02_neon%20line_linear%202.mp4" playsinline muted autoplay loop></video>
+          <video class="video_m" src="https://hlab.im/hubfs/2023%20HREVOLUTION/02_neon%20line_linear%203.mp4" playsinline muted autoplay loop></video>
         </div>
         <div class="inner">
           <p class="title">Information</p>
-          <p class="stitle">본 행사는 무료로 진행되며, <strong>추첨</strong>을 통해 <strong>참가권</strong>을 드립니다.</p>
+          <p class="stitle">본 행사는 무료로 진행되며, <br class="br_m"><strong>추첨</strong>을 통해 <strong>참가권</strong>을 드립니다.</p>
           <ul class="top_list">
             <li>
               <p class="li_title">행사일정</p>
@@ -451,13 +566,19 @@
             안내사항
           </div>
           <ul class="inform_bot_list">
-            <li>
+            <li class="li_pc">
               1. 추첨 결과는 추후 개별 메일로 안내 드립니다.
             </li>
-            <li>
+            <li class="li_m">
+              <span class="one">1.</span>추첨 결과는 추후 개별 메일로 안내 드립니다.
+            </li>
+            <li class="li_pc">
               2. 선정되지 못하신 분들께는 온라인 시청 링크를 보내드릴 예정입니다.
             </li>
-            <li>
+            <li class="li_m">
+              <span>2.</span> 선정되지 못하신 분들께는 온라인 시청 링크를 보내드릴 예정입니다.
+            </li>
+            <li class="li_pc">
               3. 행사 관련 문의 : 이채원 프로
               <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
@@ -476,11 +597,26 @@
                 010-8508-2806
               </a>
             </li>
+            <li class="li_m">
+              <span>3.</span>
+              <div>
+                행사 관련 문의 : 이채원 프로
+                <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
+                  <rect width="1" height="12" fill="#4F4F4F"/>
+                </svg>
+                <a href="mailto:lcw0514@midasin.com" class="mail">
+                  lcw0514@midasin.com
+                </a>
+                <a href="tel:01085082806" class="tel">
+                  010-8508-2806
+                </a>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
     </section>
-    <section id="form" class="form">
+    <section id="form" class="form anchor-form">
       <div class="form_modal">
         <a href="#" class="form_close">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -496,8 +632,8 @@
                 <path d="M0.5 0V12" stroke="#BFA5A5"/>
               </svg>
             </span>
-            양재 더 K 호텔 그랜드볼룸
-            <span>
+            양재 더 K 호텔 그랜드볼룸<br class="br_m">
+            <span class="no_m">
               <svg xmlns="http://www.w3.org/2000/svg" width="1" height="12" viewBox="0 0 1 12" fill="none">
                 <path d="M0.5 0V12" stroke="#BFA5A5"/>
               </svg>
@@ -525,14 +661,15 @@
           </p>
           <p class="submit_title">
             HRevolution 2023<br>
-            <strong>참가 신청이 완료되었습니다.</strong>
+            <strong>참가 신청이 완료<br class="br_m">되었습니다.</strong>
           </p>
           <p class="submit_text">
-            추첨 결과는 오는 <strong>9월 14일 목요일</strong>, 메일로 안내 드리겠습니다.
+            추첨 결과는 오는 <strong>9월 14일 목요일</strong>, <br class="br_m">메일로 안내 드리겠습니다.
           </p>
           <div class="submit_box">
             <div class="img_area">
-              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/submit_img.png" alt="스타벅스 이미지">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/submit_img.png" alt="스타벅스 이미지" class="img_pc">
+              <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/coffee_img_m.png" alt="스타벅스 이미지" class="img_m">
             </div>
             <p class="box_title">
               간단한 설문 참여하시면<br>
@@ -854,18 +991,17 @@
 </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // aos animation library - start
-    AOS.init({ 
-      duration: 600,
-    });
-    // aos animation library - end
-  </script>
   <script src="js/main.js"></script>
+  <script></script>
   <script>
     window.addEventListener('load', () => {
       const body = document.querySelector('body');
       body.classList.remove('preload');
+      // aos animation library - start
+      AOS.init({ 
+        duration: 600,
+      });
+      // aos animation library - end
     })
   </script>
 </body>
