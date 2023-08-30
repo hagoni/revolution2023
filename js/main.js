@@ -172,21 +172,23 @@
         
         if(document.querySelector(`.anchor-${menuName}`)){
           let moveLocation = document.querySelector(`.anchor-${menuName}`).offsetTop;
-          
-          if(document.querySelector('header.mobile')){
-            const header = document.querySelector('header.mobile').getBoundingClientRect();
-            window.innerWidth > 768 ? window.scrollTo({ top: moveLocation - header.height, behavior: 'smooth' }) : window.scrollTo({ top: moveLocation - header.height });
-          }else{
-            window.innerWidth > 768 ? window.scrollTo({ top: moveLocation, behavior: 'smooth' }) : window.scrollTo({ top: moveLocation });
+          const headerM = document.querySelector('header.mobile').getBoundingClientRect();
+          const headerPC = document.querySelector('header.pc').getBoundingClientRect();
+          if(window.innerWidth > 1280) {
+            // PC
+            window.scrollTo({ top: moveLocation, behavior: 'smooth' })
+          } else if(window.innerWidth <= 1280 && window.innerWidth > 768) {
+            // Tablet
+            window.scrollTo({ top: moveLocation - headerPC.height, behavior: 'smooth' })
+          } else {
+            // Mobile
+            window.scrollTo({ top: moveLocation - headerM.height })
           }
-  
         }
   
       });
     });
   }
-  
-  anchorScroll();
   
   // 메인 영상 full
   const mainVideoRatio = () => {
@@ -612,163 +614,6 @@
       slideInner.style.top = 0;
     }
   }
-  // slide interaction
-  // const slideInteraction = () => {
-  //   const slide = document.querySelector('.slide');
-  //   const slideHeight = slide.getBoundingClientRect().height / 3;
-  //   let currentScene = 0;
-
-  //   let currentScroll = scrollY - (innerHeight * 6);
-
-  //   if (currentScroll < slideHeight) {
-  //   } else if (scrollY - (innerHeight * 6) >= slideHeight && scrollY - (innerHeight * 6) < slideHeight * 2) {
-  //     currentScene = 1;
-  //   } else if (scrollY - (innerHeight * 6) >= slideHeight * 2 && scrollY - (innerHeight * 6) < slideHeight * 3) {
-  //     currentScene = 2;
-  //   }
-
-  //   const currentYOffset = currentScroll - slideHeight;
-  //   const scrollRatio = currentScroll / slideHeight;
-
-  //   function calcValues(values, currentYOffset) {
-  //     let rv;
-  //     // 현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
-  //     if (values.length === 3) {
-  //       // start ~ end 사이에 애니메이션 실행
-  //       const partScrollStart = values[2].start * slideHeight;
-  //       const partScrollEnd = values[2].end * slideHeight;
-  //       const partScrollHeight = partScrollEnd - partScrollStart;
-  
-  //       if (currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd) {
-  //         rv = (currentYOffset - partScrollStart) / partScrollHeight * (values[1] - values[0]) + values[0];
-  //       } else if (currentYOffset < partScrollStart) {
-  //         rv = values[0];
-  //       } else if (currentYOffset > partScrollEnd) {
-  //         rv = values[1];
-  //       }
-  //     } else {
-  //       rv = scrollRatio * (values[1] - values[0]) + values[0];
-  //     }
-  
-  //     return rv;
-  //   }
-
-  //   function playAnimation() {
-  //     const objs = sceneInfo[2].objs;
-  //     const values = sceneInfo[2].values;
-  //     switch (currentScene) {
-  //       case 1:
-  //         if (scrollRatio <= 1.5) {
-  //           objs.slideImageA.style.opacity = calcValues(values.slideA_opacity_in, currentYOffset);
-  //           objs.slideTitleA.style.opacity = calcValues(values.titleA_opacity_in, currentYOffset);
-  //           objs.slideTextA.style.opacity = calcValues(values.textA_opacity_in, currentYOffset);
-  //           objs.slideTitleA.style.transform = `translate3d(0, ${calcValues(values.titleA_transform_in, currentYOffset)}px, 0)`;
-  //           objs.slideTextA.style.transform = `translate3d(0, ${calcValues(values.textA_transform_in, currentYOffset)}px, 0)`;
-  //           objs.slideImageA.style.opacity = calcValues(values.slideA_opacity_in, currentYOffset);
-  //         } else {
-  //           objs.slideImageA.style.opacity = calcValues(values.slideA_opacity_out, currentYOffset);
-  //           objs.slideTitleA.style.opacity = calcValues(values.titleA_opacity_out, currentYOffset);
-  //           objs.slideTextA.style.opacity = calcValues(values.textA_opacity_out, currentYOffset);
-  //           objs.slideTitleA.style.transform = `translate3d(0, ${calcValues(values.titleA_transform_out, currentYOffset)}px, 0)`;
-  //           objs.slideTextA.style.transform = `translate3d(0, ${calcValues(values.textA_transform_out, currentYOffset)}px, 0)`;
-  //           objs.slideImageA.style.opacity = calcValues(values.slideA_opacity_out, currentYOffset);
-  //         }
-  //         if (scrollRatio <= 2) {
-  //           if (scrollRatio > 1.5){
-  //             objs.slideList.style.transform = `translate3d(${calcValues(values.slide_translateX_once, currentYOffset)}px, 0, 0)`;
-  //           }
-  //         }
-  //       break;
-  //       case 2:
-  //         if (scrollRatio <= 3) {
-  //           if(scrollRatio < 2.0) {
-  //             objs.slideImageB.style.opacity = calcValues(values.slideB_opacity_in, currentYOffset);
-  //             objs.slideTitleB.style.opacity = calcValues(values.titleB_opacity_in, currentYOffset);
-  //             objs.slideTextB.style.opacity = calcValues(values.textB_opacity_in, currentYOffset);
-  //             objs.slideTitleB.style.transform = `translate3d(0, ${calcValues(values.titleB_transform_in, currentYOffset)}px, 0)`;
-  //             objs.slideTextB.style.transform = `translate3d(0, ${calcValues(values.textB_transform_in, currentYOffset)}px, 0)`;
-  //             objs.slideImageB.style.opacity = calcValues(values.slideB_opacity_in, currentYOffset);
-
-  //             // objs.slideImageA.style.opacity = 0.5;
-  //             objs.slideImageB.style.opacity = 0.5;
-  //             objs.slideImageC.style.opacity = 0.5;
-  //             // objs.slideTitleA.style.opacity = 0;
-  //             objs.slideTitleB.style.opacity = 0;
-  //             objs.slideTitleC.style.opacity = 0;
-  //             // objs.slideTextA.style.opacity = 0;
-  //             objs.slideTextB.style.opacity = 0;
-  //             objs.slideTextC.style.opacity = 0;
-  //             // objs.slideTitleA.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTitleB.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTitleC.style.transform = 'translate3d(0, 0, 0)';
-  //             // objs.slideTextA.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTextB.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTextC.style.transform = 'translate3d(0, 0, 0)';
-
-  //           } else if(scrollRatio < 2.5) {
-  //             objs.slideImageB.style.opacity = calcValues(values.slideB_opacity_out, currentYOffset);
-  //             objs.slideTitleB.style.opacity = calcValues(values.titleB_opacity_out, currentYOffset);
-  //             objs.slideTextB.style.opacity = calcValues(values.textB_opacity_out, currentYOffset);
-  //             objs.slideTitleB.style.transform = `translate3d(0, ${calcValues(values.titleB_transform_out, currentYOffset)}px, 0)`;
-  //             objs.slideTextB.style.transform = `translate3d(0, ${calcValues(values.textB_transform_out, currentYOffset)}px, 0)`;
-  //             objs.slideImageB.style.opacity = calcValues(values.slideB_opacity_out, currentYOffset);
-
-
-  //             objs.slideImageA.style.opacity = 0.5;
-  //             // objs.slideImageB.style.opacity = 0.5;
-  //             objs.slideImageC.style.opacity = 0.5;
-  //             objs.slideTitleA.style.opacity = 0;
-  //             // objs.slideTitleB.style.opacity = 0;
-  //             objs.slideTitleC.style.opacity = 0;
-  //             objs.slideTextA.style.opacity = 0;
-  //             // objs.slideTextB.style.opacity = 0;
-  //             objs.slideTextC.style.opacity = 0;
-  //             objs.slideTitleA.style.transform = 'translate3d(0, 0, 0)';
-  //             // objs.slideTitleB.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTitleC.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTextA.style.transform = 'translate3d(0, 0, 0)';
-  //             // objs.slideTextB.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTextC.style.transform = 'translate3d(0, 0, 0)';
-  //           } else if (scrollRatio <= 2.8) {
-  //             objs.slideImageC.style.opacity = calcValues(values.slideC_opacity_in, currentYOffset);
-  //             objs.slideTitleC.style.opacity = calcValues(values.titleC_opacity_in, currentYOffset);
-  //             objs.slideTextC.style.opacity = calcValues(values.textC_opacity_in, currentYOffset);
-  //             objs.slideTitleC.style.transform = `translate3d(0, ${calcValues(values.titleC_transform_in, currentYOffset)}px, 0)`;
-  //             objs.slideTextC.style.transform = `translate3d(0, ${calcValues(values.textC_transform_in, currentYOffset)}px, 0)`;
-  //             objs.slideImageC.style.opacity = calcValues(values.slideC_opacity_in, currentYOffset);
-
-  //             objs.slideImageA.style.opacity = 0.5;
-  //             objs.slideImageB.style.opacity = 0.5;
-  //             // objs.slideImageC.style.opacity = 0.5;
-  //             objs.slideTitleA.style.opacity = 0;
-  //             objs.slideTitleB.style.opacity = 0;
-  //             // objs.slideTitleC.style.opacity = 0;
-  //             objs.slideTextA.style.opacity = 0;
-  //             objs.slideTextB.style.opacity = 0;
-  //             // objs.slideTextC.style.opacity = 0;
-  //             objs.slideTitleA.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTitleB.style.transform = 'translate3d(0, 0, 0)';
-  //             // objs.slideTitleC.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTextA.style.transform = 'translate3d(0, 0, 0)';
-  //             objs.slideTextB.style.transform = 'translate3d(0, 0, 0)';
-  //             // objs.slideTextC.style.transform = 'translate3d(0, 0, 0)';
-  //           } else {
-  //             objs.slideImageC.style.opacity = calcValues(values.slideC_opacity_out, currentYOffset);
-  //             objs.slideTitleC.style.opacity = calcValues(values.titleC_opacity_out, currentYOffset);
-  //             objs.slideTextC.style.opacity = calcValues(values.textC_opacity_out, currentYOffset);
-  //             objs.slideTitleC.style.transform = `translate3d(0, ${calcValues(values.titleC_transform_out, currentYOffset)}px, 0)`;
-  //             objs.slideTextC.style.transform = `translate3d(0, ${calcValues(values.textC_transform_out, currentYOffset)}px, 0)`;
-  //             objs.slideImageC.style.opacity = calcValues(values.slideC_opacity_out, currentYOffset);
-  //           }
-            
-            
-  //           objs.slideList.style.transform = `translate3d(${calcValues(values.slide_translateX_twice, currentYOffset)}px, 0, 0)`;
-  //         } 
-  //       break;
-  //     }
-  //   }
-  //   playAnimation();
-  // }
 
   // attend swiper
   const attendSwiper = () => {
@@ -1224,6 +1069,9 @@
     const attendItems = document.querySelectorAll('.attend .swiper-slide');
     const sessionTitle = document.querySelector('.session .title');
     const sessionText = document.querySelector('.session .text');
+    const tSessionList = document.querySelector('.session .st_list');
+    const tSessionTitle = document.querySelector('.session_tablet .st_title');
+    const tSessionText = document.querySelector('.session_tablet .st_text');
     if(type === "mobile") {
       attendTitle.dataset.aos = "fade-up";
       attendItems.forEach(el => {
@@ -1231,7 +1079,10 @@
       });
       sessionTitle.dataset.aos = "fade-up";
       sessionText.dataset.aos = "fade-up";
-    } else {
+      tSessionList.dataset.aos = "fade-up";
+      tSessionTitle.dataset.aos = "fade-up";
+      tSessionText.dataset.aos = "fade-up";
+    } else if(type) {
 
     }
   }
@@ -1343,16 +1194,54 @@
   const mSlideHandler = () => {
     const swiper = new Swiper('.slide .slide_list_wrap', {
       spaceBetween: 14,
+      breakpoints: {
+        // when window width is >= 769px
+        769: {
+          spaceBetween: 32,
+        },
+      }
     });
+  }
+
+  // tFormBtn
+  const tFormBtn = () => {
+    const formBtns = document.querySelectorAll('.form_btn');
+    formBtns.forEach(el => {
+      el.href = "#form";
+    })
+  }
+
+  // tAttend swiper
+  const tAttendSwiper = () => {
+    const swiper = new Swiper('.attend .swiper .swiper-container', {  
+      spaceBetween: 16,
+      navigation: {
+        nextEl: '.attend .swiper-button-next',
+        prevEl: '.attend .swiper-button-prev',
+      },
+    });
+  }
+
+  // tSessionDropdown
+  const tSessionDropdown = () => {
+    const lists = document.querySelectorAll('.st_item');
+    const onOffTrigger = document.querySelectorAll('.st_item .st_top');
+    onOffTrigger.forEach((el, index) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        lists[index].classList.toggle('on');
+      })
+    })
   }
 
   qnaTabHandler();
   qnaListHandler();
 
-  if (matchMedia("screen and (min-width: 767px)").matches) {
+  if (matchMedia("screen and (min-width: 1281px)").matches) {
     // pc버전에서 실행
     console.log('PC!')
     setLayout();
+    anchorScroll();
 
     mainVideoRatio();
     mainScrollButton();
@@ -1387,15 +1276,31 @@
   
       topBtnHandler();
     });
-  } else {
-    // mobile버전에서 실행
-    console.log('MOBILE!!');
-
+  } else if(matchMedia("screen and (min-width: 769px)").matches) {
+    tAttendSwiper();
+    tFormBtn();
     mAnimation("mobile");
     mAnchorHandler();
     mMainHandler();
     mStoryHandler();
     mSlideHandler();
+    tSessionDropdown();
+    anchorScroll();
+    window.addEventListener('scroll', () => {
+      mStoryHandler();
+    });
+  } else {
+    // mobile버전에서 실행
+    console.log('MOBILE!!');
+
+    tFormBtn();
+    mAnimation("mobile");
+    mAnchorHandler();
+    mMainHandler();
+    mStoryHandler();
+    mSlideHandler();
+    tSessionDropdown();
+    anchorScroll();
     window.addEventListener('scroll', () => {
       mStoryHandler();
     });
@@ -1403,7 +1308,9 @@
 
   let reloadCounter;
   const reloadHandler = () => {
-    if (matchMedia("screen and (min-width: 767px)").matches) {
+    if (matchMedia("screen and (min-width: 1281px)").matches) {
+      reloadCounter = 2;
+    } else if (matchMedia("screen and (min-width: 769px)").matches) {
       reloadCounter = 1;
     } else {
       reloadCounter = 0;
@@ -1412,12 +1319,12 @@
   reloadHandler();
 
   window.addEventListener('resize', () => {
-    if (matchMedia("screen and (min-width: 767px)").matches) {
+    if (matchMedia("screen and (min-width: 1281px)").matches) {
       // pc버전에서 실행
       console.log('PC RESIZE!');
-      if (reloadCounter === 0) {
+      if (reloadCounter === 0 || reloadCounter === 1) {
         location.reload();
-        reloadCounter++;
+        reloadCounter = 2;
       }
       setLayout();
 
@@ -1458,16 +1365,21 @@
     
         topBtnHandler();
       });
+    } else if (matchMedia("screen and (min-width: 769px)").matches) {
+      // tablet버전에서 실행
+      if(reloadCounter === 2 || reloadCounter === 0) {
+        location.reload();
+        reloadCounter = 0;
+      }
+      mAnimation("mobile");
     } else {
       // mobile버전에서 실행
       console.log('MOBILE RESIZE!');
-      if(reloadCounter === 1) {
+      if(reloadCounter === 1 || reloadCounter === 2) {
         location.reload();
-        reloadCounter--;
+        reloadCounter = 0;
       }
       mAnimation("mobile");
-
-      
     }
   });
 
@@ -1487,5 +1399,16 @@
   //     cursor.style.opacity = 0;
   //   });
   // })
+
+  const videoElement = document.querySelector('#mv_video_loop');
+  videoElement.addEventListener('suspend', () => {
+    // suspended loading. Show play UI..
+    videoElement.play();
+  });
+  
+  videoElement.addEventListener('play', () => {
+    // remove play UI
+    videoElement.style.backgroundColor = '#000';
+  });
 })();
 
