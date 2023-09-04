@@ -32,8 +32,8 @@
         colon: document.querySelector('.story .title .colon'),
         title: document.querySelector('.story .title'),
         video: document.querySelector('#story_vid_1'),
-        barLeft: document.querySelector('.bar_left'),
-        barRight: document.querySelector('.bar_right'),
+        // barLeft: document.querySelector('.bar_left'),
+        // barRight: document.querySelector('.bar_right'),
         overlay: document.querySelector('.story .overlay'),
         inner: document.querySelector('.story .inner'),
       },
@@ -53,6 +53,7 @@
         colon_width_in: [0, 33, { start: 2.1, end: 2.35 }],
         overlay_change_in: [0.8, 1, { start: 1.8, end: 2 }],
         overlay_change_out: [1, 0.8, { start: 2, end: 2.2 }],
+        inner_width_in: [300, 0, { start: -0.7, end: -0.2 }],
         
 				messageA_opacity_out: [1, 0, { start: 0.6, end: 0.8 }],
 				messageB_opacity_out: [1, 0, { start: 1.6, end: 1.8 }],
@@ -121,6 +122,9 @@
 
         slide_translateX_once: [730, 0, { start: 1, end: 1 }],
         slide_translateX_twice: [0, -730, { start: 1.5, end: 1.5 }],
+
+        slide1800_translateX_once: [574, 0, { start: 1, end: 1 }],
+        slide1800_translateX_twice: [0, -574, { start: 1.5, end: 1.5 }],
       },
 		},
     {
@@ -174,10 +178,10 @@
           let moveLocation = document.querySelector(`.anchor-${menuName}`).offsetTop;
           const headerM = document.querySelector('header.mobile').getBoundingClientRect();
           const headerPC = document.querySelector('header.pc').getBoundingClientRect();
-          if(window.innerWidth > 1280) {
+          if(window.innerWidth > 1366) {
             // PC
             window.scrollTo({ top: moveLocation, behavior: 'smooth' })
-          } else if(window.innerWidth <= 1280 && window.innerWidth > 768) {
+          } else if(window.innerWidth <= 1366 && window.innerWidth > 768) {
             // Tablet
             window.scrollTo({ top: moveLocation - headerPC.height, behavior: 'smooth' })
           } else {
@@ -292,7 +296,6 @@
           textArea.style.display = 'block';
           setTimeout(mainInteraction, 3500);
           mainScrollBtn.style.opacity = 0;
-          
         }
         // intro 영상이 끝났는 지 판별
         const pauseDetector = () => {
@@ -320,7 +323,7 @@
     const videoArea = document.querySelector('.story .videos_wrap');
     const videos = document.querySelectorAll('.story video');
     const boxHeight = story.getBoundingClientRect().height,  // 부모박스의 높이
-    boxWidth = story.getBoundingClientRect().width,	// 부모박스의 너비
+    boxWidth = story.getBoundingClientRect().width + 300,	// 부모박스의 너비
     boxRatio = boxHeight / boxWidth,
     stanRatio = 1080/1920;  // 영상의 height/width
     if(boxRatio >= stanRatio){
@@ -439,8 +442,9 @@
         case 0:
           if (scrollRatio >= -1) {
             // in
-            objs.barLeft.style.width = `${calcValues(values.bar_width_out, currentYOffset)}%`;
-            objs.barRight.style.width = `${calcValues(values.bar_width_out, currentYOffset)}%`;
+            // objs.barLeft.style.width = `${calcValues(values.bar_width_out, currentYOffset)}%`;
+            // objs.barRight.style.width = `${calcValues(values.bar_width_out, currentYOffset)}%`;
+            objs.inner.style.width = `calc(100% - ${calcValues(values.inner_width_in, currentYOffset)}px`;
             objs.overlay.style.opacity = calcValues(values.overlay_opacity_in, currentYOffset);
           }
         case 1:
@@ -587,7 +591,13 @@
     }
     if(currentScroll < innerHeight / 3 && currentScroll > 0) {
       // 초기값
-      itemArray[0].objs.listItem.style.transform = 'translate3d(730px, 0, 0)';
+      if(matchMedia("screen and (max-width: 1600px)").matches) {
+        itemArray[0].objs.listItem.style.transform = 'translate3d(434px, 0, 0)';  
+      } else if(matchMedia("screen and (max-width: 1800px)").matches) {
+        itemArray[0].objs.listItem.style.transform = 'translate3d(574px, 0, 0)';
+      } else {
+        itemArray[0].objs.listItem.style.transform = 'translate3d(730px, 0, 0)';
+      }
       slideOn(0);
       slideOff(1);
     }
@@ -598,7 +608,13 @@
       slideOff(2);
     }
     if(currentScroll > 2 * innerHeight / 3 && currentScroll < innerHeight) {
-      itemArray[0].objs.listItem.style.transform = 'translate3d(-730px, 0, 0)';
+      if(matchMedia("screen and (max-width: 1600px)").matches) {
+        itemArray[0].objs.listItem.style.transform = 'translate3d(-434px, 0, 0)';  
+      } else if(matchMedia("screen and (max-width: 1800px)").matches) {
+        itemArray[0].objs.listItem.style.transform = 'translate3d(-574px, 0, 0)';
+      } else {
+        itemArray[0].objs.listItem.style.transform = 'translate3d(-730px, 0, 0)';
+      }
       slideOn(2);
       slideOff(1);
     }
@@ -876,10 +892,10 @@
     if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady'){
       // change submit text - start
       const submitWrap = document.querySelectorAll('.actions');
-      const div = document.createElement("div");
-      div.innerHTML = `신청하기 <span>09. 13. 수. 23:59까지</span>`
+      const a = document.createElement("a");
+      a.innerHTML = `신청하기 <span>09. 13. 수. 23:59까지</span>`
       submitWrap.forEach(el => {
-        el.appendChild(div);
+        el.appendChild(a);
       });
       // change submit text - end
 
@@ -1082,8 +1098,6 @@
       tSessionList.dataset.aos = "fade-up";
       tSessionTitle.dataset.aos = "fade-up";
       tSessionText.dataset.aos = "fade-up";
-    } else if(type) {
-
     }
   }
 
@@ -1237,7 +1251,7 @@
   qnaTabHandler();
   qnaListHandler();
 
-  if (matchMedia("screen and (min-width: 1281px)").matches) {
+  if (matchMedia("screen and (min-width: 1367px)").matches) {
     // pc버전에서 실행
     console.log('PC!')
     setLayout();
@@ -1308,7 +1322,7 @@
 
   let reloadCounter;
   const reloadHandler = () => {
-    if (matchMedia("screen and (min-width: 1281px)").matches) {
+    if (matchMedia("screen and (min-width: 1367px)").matches) {
       reloadCounter = 2;
     } else if (matchMedia("screen and (min-width: 769px)").matches) {
       reloadCounter = 1;
@@ -1319,7 +1333,7 @@
   reloadHandler();
 
   window.addEventListener('resize', () => {
-    if (matchMedia("screen and (min-width: 1281px)").matches) {
+    if (matchMedia("screen and (min-width: 1367px)").matches) {
       // pc버전에서 실행
       console.log('PC RESIZE!');
       if (reloadCounter === 0 || reloadCounter === 1) {
@@ -1329,7 +1343,6 @@
       setLayout();
 
       mainVideoRatio();
-      mainScrollButton();
       mainVideoHandler();
       
       storyInteraction();
@@ -1383,23 +1396,6 @@
     }
   });
 
-  // const cursor = document.querySelector('.custom_cursor');
-  // const cursorArea = document.querySelectorAll('.session .table_item.session_item');
-  // cursorArea.forEach(() => {
-  //   el.addEventListener('mouseenter', (e) => {
-  //     setTimeout(() => {cursor.style.position = 'fixed';}, 100);
-  //     cursor.style.opacity = 1;
-  //     cursorArea.addEventListener('mousemove', (e) => {
-  //       cursor.style.left = `${e.clientX}px`;
-  //       cursor.style.top = `${e.clientY}px`;
-  //     })
-  //   });
-  //   el.addEventListener('mouseleave', (e) => {
-  //     setTimeout(() => {cursor.style.position = 'absolute';}, 100);
-  //     cursor.style.opacity = 0;
-  //   });
-  // })
-
   const videoElement = document.querySelector('#mv_video_loop');
   videoElement.addEventListener('suspend', () => {
     // suspended loading. Show play UI..
@@ -1409,6 +1405,9 @@
   videoElement.addEventListener('play', () => {
     // remove play UI
     videoElement.style.backgroundColor = '#000';
+  });
+  AOS.init({ 
+    duration: 600,
   });
 })();
 

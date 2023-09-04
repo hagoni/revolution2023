@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    @charset "utf-8";
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+      background: transparent;
+      box-sizing:border-box;
+    }
+
+    a {display:inline-block;}
+    a:link { color: #231f20; text-decoration: none; }
+    a:hover{ color:#231f20; text-decoration: none; }
+    a:visited { color: #231f20; text-decoration: none;}
+    a:active { color: #231f20; text-decoration: none;}
+
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {line-height: 1; background: #fff; color: #000;}
+    ol,ul { list-style:none; }
+    article, aside, canvas, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section, summary { display: block;}
+    nav ul { list-style: none;}
+    blockquote, q { quotes: none;}
+    blockquote:before, blockquote:after,
+    q:before, q:after { content: ''; content: none;}
+    ins { background-color: #ff9; color: #000; text-decoration: none;}
+    mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold;}
+    del { text-decoration: line-through;}
+    abbr[title], dfn[title] { border-bottom: 1px dotted #000; cursor: help;}
+    table { border-collapse: collapse; border-spacing: 0;}
+    hr { display: block; height: 1px; border: 0; border-top: 1px solid #cccccc; margin: 1em 0; padding: 0;}
+    input, select { vertical-align: middle;}
+    caption { text-indent:-9999em; font-size:0; line-height:0;}
+    select,input,button,textarea,button{font-size:99%;}
+    table{font-size:inherit;}
+    pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+    .content legend {overflow:hidden;visibility:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}
+    input, select { vertical-align: middle;}
+    button {margin:0; padding:0; font:inherit; line-height:normal; background:transparent; border:0;}
+    img {vertical-align:top;}
+    button {background:transparent; border:0; cursor:pointer; outline:0;}
+    ::-ms-clear {display:none;}
+    ::-webkit-search-decoration,
+    ::-webkit-search-cancel-button,
+    ::-webkit-search-results-button,
+    ::-webkit-search-results-decoration {display:none;}
+
+
+    body {
+      font-family: 'Pretendard';
+    }
+    #wrap {
+      width: 700px;
+      /* height: 1493px; */
+      margin: 0 auto;
+      /* padding-top: 56px; */
+      background: #020202 url('https://hlab.im/hubfs/2023%20HREVOLUTION/eDM/Group%203468033.svg') no-repeat top right;
+      background-size: 482px;
+    }
+    .bot {
+      position: relative;
+      padding-bottom: 80px;
+    }
+    .web_link {
+      width: 100%;
+      height: 56px;
+      background-color: #020202;
+      font-size: 14px;
+      letter-spacing: -0.4px;
+      line-height: 56px;
+      text-align: center;
+      color: #fff;
+    }
+    .web_link a {
+      font-weight: bold;
+      color: #008ff8;
+      text-decoration: underline;
+    }
+    .header {
+      position: relative;
+    }
+    .hrevolution_logo {
+      position: absolute;
+      left: 48px;
+      top: 40px;
+    }
+    .hrevolution_logo:before {
+      content: '';
+      position: absolute;
+      left: 163px;
+      top: 9px;
+      width: 239px;
+      height: 1px;
+      background-color: #808080;
+    }
+    .header p {
+      position: absolute;
+      right: 42px;
+      top: 45px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 14px;
+      color: #fff;
+    }
+    .top_link {
+      display: block;
+    }
+    .title_inner {
+      padding-left: 79px;
+      padding-top: 130px;
+    }
+    .title {
+      margin-bottom: 30px;
+      font-size: 60px;
+      font-weight: 600;
+      line-height: 125%;
+      color: #fff;
+    }
+    .title em {
+      font-size: 72px;
+      color: #ff6767;
+    }
+    .stitle {
+      margin-bottom: 111px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 26px;
+      color: #fff;
+    }
+    .text {
+      width: 516px;
+      margin-left: 103px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 150%;
+      color: #fff;
+    }
+    .text em {
+      font-weight: 800;
+    }
+    .text strong {
+      font-weight: 800;
+      color: #c74767;
+    }
+    .text i {
+      font-weight: 800;
+      color: #6174f1;
+    }
+    .text a {
+      font-weight: 800;
+      color: #ff0d41;
+      text-decoration: underline;
+    }
+    .remove {
+      width: 200px;
+      margin: 84.5px auto 10px;
+    }
+    .remove img {
+      width: 100%;
+    }
+    .r_text {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 32px;
+      color: #fff;
+      opacity: 0.75;
+      text-align: center;
+    }
+    .img {
+      width: 500px;
+      margin: 40px auto 37px;
+    }
+    .img img {
+      width: 100%;
+    }
+    .register {
+      display: block;
+      width: 301px;
+      margin: 0 auto;
+    }
+    .register img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="bot">
+      <a href="https://hubs.ly/Q020_s5V0" class="top_link" target="_blank">
+        <div class="header">
+          <div class="hrevolution_logo"><img src="https://hlab.im/hubfs/2023%20HREVOLUTION/eDM/HRevolution.svg" alt="HRevolution"></div>
+          <p>국내 최대 HR-TECH 컨퍼런스</p>
+        </div>
+        <div class="title_inner">
+          <p class="title">
+            사전 신청 인원 <br>
+            <em>1,000명</em> 돌파!
+          </p>
+          <p class="stitle">
+            2023. 09. 20(수) 13:00  📍양재 더케이호텔, 그랜드 볼룸 
+          </p>
+        </div>
+      </a>
+      <p class="text">
+        안녕하세요, 마이다스인 HRevolution 팀입니다.<br><br>
+        아니 벌써! 🫢 HRevolution 참가 신청 오픈 <em>3일</em>만에 <br>
+        <em>1,000명</em>이 넘는 인사담당자분들께서 신청해주셨다는 사실!<br><br>
+        
+        국내 최대 HR-TECH 컨퍼런스인 HRevolution에선 그간 쉽게 접할 수 없었던 HR에 <br>
+        대한 과학적인 접근, HR에 적용된 최신 IT 기술과 새로운 아이디어를 경험할 수 있습니다.<br><br>
+        
+        또 뉴트로지나, 타이레놀 등 세계적인 헬스케어 브랜드를 보유한 <strong>‘존슨앤드존슨 컨수머’의 <br>
+        채병권 북아시아 HR 총괄</strong>님과 함께 HR Analytics 전략을, <br>
+        갤럭시 성공신화를 이끈 <i>‘삼성전자’ 고동진 전 대표이사</i>님과 함께 인사팀원에서 세계적인 <br>
+        모바일 제품 사업 책임자가 되기까지의 성장스토리를 생생하게 만나보실 수 있습니다. <br><br>
+        
+        그럼, <br>
+        2023년 9월 20일 (수) 서울 양재 더케이 호텔에서 만나요!<br><br>
+        
+        <a href="https://hubs.ly/Q020_s5V0" class="text_link" target="_blank">> 만나러 가기 </a>
+      </p>
+      <div class="remove"><img src="https://hlab.im/hubfs/2023%20HREVOLUTION/eDM/RE_MOVE.svg" alt="RE:MOVE"></div>
+      <p class="r_text">틀을 깨고 나아가다</p>
+      <div class="img">
+        <img src="https://hlab.im/hubfs/2023%20HREVOLUTION/eDM/Frame%203467400.png" alt="이런 분들을 위한 컨퍼런스입니다.">
+      </div>
+      <a href="https://hubs.ly/Q020_s5V0" class="register" target="_blank"><img src="https://hlab.im/hubfs/2023%20HREVOLUTION/eDM/Frame%203467395.png" alt="HRevolution 참가 신청하기"></a>
+    </div>
+  </div>
+</body>
+</html>
