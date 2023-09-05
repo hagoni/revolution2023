@@ -219,6 +219,11 @@
       });
     }
   }
+
+  const mainCoverBox = () => {
+    const mainCover = document.querySelector('.main_visual .cover');
+    mainCover.style.display = "none";
+  }
   
   // 메인 스크롤 버튼 애니메이션
   const mainScrollButton = () => {
@@ -300,6 +305,7 @@
         // intro 영상이 끝났는 지 판별
         const pauseDetector = () => {
           if(videoIntro.paused) {
+            videoLoop.style.opacity = 1;
             videoLoop.play();
             setTimeout(() => {
               document.querySelector('body').classList.remove('no-scroll');
@@ -1258,6 +1264,7 @@
     anchorScroll();
 
     mainVideoRatio();
+    mainCoverBox();
     mainScrollButton();
     mainVideoHandler();
     
@@ -1341,7 +1348,7 @@
         reloadCounter = 2;
       }
       setLayout();
-
+      mainCoverBox();
       mainVideoRatio();
       mainVideoHandler();
       
