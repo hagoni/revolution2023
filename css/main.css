@@ -286,6 +286,9 @@ header.mobile.on .menu {
   top: 50%;
   transform: translate(-50%,-50%);
 }
+.main_visual #mv_video_intro {
+  transition: 0.1s linear;
+}
 .main_visual #mv_video_loop {
   opacity: 0;
 }
@@ -1043,7 +1046,7 @@ header.mobile.on .menu {
   background-image: url('https://hlab.im/hubfs/2023%20HREVOLUTION/ss_img3_.png');
 }
 .session .img_item.img_item4 {
-  background-image: url('https://hlab.im/hubfs/2023%20HREVOLUTION/ss_img4_.png');
+  background-image: url('https://hlab.im/hubfs/2023%20HREVOLUTION/ss_img_4_.png');
 }
 .session .img_item.img_item5 {
   background-image: url('https://hlab.im/hubfs/2023%20HREVOLUTION/ss_img5_.png');
