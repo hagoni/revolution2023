@@ -1,8 +1,11 @@
 /**
-  font-family: 'Lato', sans-serif;
   font-family: 'Lexend', sans-serif;
   font-family: 'Pretendard';
 */
+
+div#hs-eu-cookie-confirmation.hs-cookie-notification-position-bottom {
+  pointer-events: all; 
+}
 
 /* common */
 .full_height {

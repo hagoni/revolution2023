@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DD</title>
+    <meta name="description" content="{{ content.meta_description }}">
+    <link rel="shortcut icon" href="{{ brand_settings.primaryFavicon.src }}" />
+  </head>
+  <body>
+    gate Page
+    <div>
+      bbb
+    </div>
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "21626933",
+        formId: "e7c10668-ff3a-45d2-bbfb-4101b842251f",
+        onFormSubmit: (data) => {
+          const mail = document.querySelector('input[name="email"]');
+          window.location.href= 'https://hlab.im/mollm-test?' + mail.value;
+          document.cookie = `usermail = ${mail.value}`;
+        }
+      });
+      
+    </script>
+  </body>
+</html>
